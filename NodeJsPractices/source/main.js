@@ -1,9 +1,10 @@
-const http = require('http');
+var http = require('http');
 
-const server = http.createServer((req, res)=>{
-    res.end("Hello Mohammad Arif");
-})
+// created server
+var server = http.createServer((req, res)=>{
+    res.end("Hello Bangladesh");
+});
 
-server.listen(5050)
-console.log("Server is running...");
-
+// define port for server
+server.listen(5050);
+console.log("Server running...");
