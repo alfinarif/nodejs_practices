@@ -104,17 +104,52 @@ const server = http.createServer((req, res) =>{
 
         // Synchronous for unlink (delete) file =============
 
-        let error = fs.unlinkSync('demoSync.txt');
-        if (error){
-            res.writeHead(500, {'Content-type': 'text/html'});
-            res.write('File delete failed...');
-            res.end();
-        }else{
-            res.writeHead(200, {'Content-type': 'text/html'});
-            res.write('File deleted success');
-            res.end();
-        }
+        // let error = fs.unlinkSync('demoSync.txt');
+        // if (error){
+        //     res.writeHead(500, {'Content-type': 'text/html'});
+        //     res.write('File delete failed...');
+        //     res.end();
+        // }else{
+        //     res.writeHead(200, {'Content-type': 'text/html'});
+        //     res.write('File deleted success');
+        //     res.end();
+        // }
 
+
+
+        // Asynchronous for file exist (fs.exists) ============
+
+        fs.exists('demo.txt', (result)=>{
+            if (result){
+                res.writeHead(200, {'Content-type': 'text/html'});
+                res.write("This file is exist here");
+                res.end();
+
+            }else {
+                res.writeHead(500, {'Content-type': 'text/html'});
+                res.write("This file is does not exist here.");
+                res.end();
+            }
+        })
+
+
+
+
+
+        // Synchronous for file exist (fs.exists) =============
+
+        // let result = fs.existsSync('demo.txt');
+        // if (result){
+        //     res.writeHead(200, {'Content-type': 'text/html'});
+        //     res.write("This file is exist here");
+        //     res.end();
+        //
+        // }else {
+        //     res.writeHead(500, {'Content-type': 'text/html'});
+        //     res.write("This file is does not exist here.");
+        //     res.end();
+        //
+        // }
 
 
 
