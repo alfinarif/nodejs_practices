@@ -1,6 +1,6 @@
-let mySQL = require('mysql');
+let mysql = require('mysql');
 
-// database config
+// database configurations
 let DbConnectionConfig = {
     host: "localhost",
     user: "root",
@@ -8,40 +8,90 @@ let DbConnectionConfig = {
     database: "school"
 }
 
-// database connection
-let DbConnect = mySQL.createConnection(DbConnectionConfig);
+// create connection with database configurations
+let DbConnect = mysql.createConnection(DbConnectionConfig);
 
+// connect database with localhost
 DbConnect.connect((error)=>{
-    if(error){
-        console.log("Connection Failed");
-    }else{
-        console.log("Connected Successfully");
-        // InsertData(DbConnect);
-        DeleteData(DbConnect);
+    if (error){
+        // checked is database connection failed
+        console.log("Database connection errors");
+    }else {
+        // checked is database connected or not
+        console.log("Database has been connected successfully");
+        // called insert function
+        // InsertDataFunc(DbConnect);
+        // called delete function
+        // DeleteDataFunc(DbConnect);
+        // called update function
+        // UpdateDataFunc(DbConnect);
+        // called select using 'id' and select all
+        SelectDataFunc(DbConnect);
     }
 });
 
-
-// insert data function
-let InsertData = (DbConnect)=>{
-    let SqlQuery = "INSERT INTO `students_list`(`name`, `roll`, `class`, `phone`, `email`, `city`) VALUES ('Mohammad Shohan', '02', 'two', '0506897109', 'shohan@gmail.com', 'Cumilla')"
-    DbConnect.query(SqlQuery, (error)=>{
-        if(error){
-            console.log("Data insert failed");
+// data insert function
+let InsertDataFunc = (DbConnect)=>{
+    // sql query
+    let insertSql = "INSERT INTO `students_list`(`name`, `roll`, `class`, `phone`, `email`, `city`) VALUES ('Shohan', '01', 'ten', '0506897109', 'shohan@gmail.com', 'Cumilla')";
+    DbConnect.query(insertSql, (error)=>{
+        if (error){
+            console.log("Data inserting errors");
         }else{
-            console.log("Data inserted success");
+            console.log("Data has been inserted successfully");
         }
     })
-}
 
-// delete data function
-let DeleteData = (DbConnect)=>{
-    let SqlQuery = "DELETE FROM `students_list` WHERE id=7";
-    DbConnect.query(SqlQuery, (error)=>{
-        if(error){
-            console.log("Data delete failed");
+
+};
+
+// data delete function
+let DeleteDataFunc = (DbConnect)=>{
+    let deleteSql = "DELETE FROM `students_list` WHERE `id`=1";
+    DbConnect.query(deleteSql, (error)=>{
+        if (error){
+            console.log("Something went wrong");
         }else{
-            console.log("Data deleted success");
+            console.log("Successfully deleted");
         }
-    })
-}
+    });
+};
+
+// data update function
+let UpdateDataFunc = (DbConnect)=>{
+    let updateSql = "UPDATE `students_list` SET `name`='Mohammad Arif',`roll`='001',`class`='E11',`phone`='01926002374',`email`='alfin@gmail.com',`city`='Cumilla' WHERE 2";
+    DbConnect.query(updateSql, (error)=>{
+        if (error){
+            console.log("Something went wrong");
+        }else{
+            console.log("Successfully updated");
+        }
+    });
+};
+
+
+// Select data function
+let SelectDataFunc = (DbConnect)=>{
+    // this sql query selected a specific data using 'id', 'name' or something else
+    let selectIdSql = "SELECT `id`, `name` FROM `students_list` WHERE `id`= 2";
+    // select all data from 'students_list' table
+    let selectAllSql = "SELECT * FROM `students_list`";
+
+    DbConnect.query(selectAllSql, (error, data)=>{
+        if (error){
+            console.log("Something went wrong");
+        }else{
+            console.log("Successfully selected");
+            console.log(data);
+        }
+    });
+};
+
+
+
+
+
+
+
+
+
