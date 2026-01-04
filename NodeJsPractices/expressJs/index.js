@@ -5,6 +5,11 @@ const app = express()
 app.get('/', (req, res)=>{
     res.send("Hello world");
     console.log("Work fine");
+});
+
+
+app.get('/about', (req, res)=>{
+    res.send("Hello about page");
 })
 
 
