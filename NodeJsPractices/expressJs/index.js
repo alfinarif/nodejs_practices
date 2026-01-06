@@ -16,6 +16,10 @@ app.get('/contact', (req, res)=>{
     res.send("Hello contact page");
 })
 
+app.get('/services', (req, res)=>{
+    res.send("Hello services page");
+})
+
 
 app.listen(8080, (error)=>{
     if(error){
