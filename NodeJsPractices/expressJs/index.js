@@ -20,6 +20,10 @@ app.get('/services', (req, res)=>{
     res.send("Hello services page");
 })
 
+app.get('/profile', (req, res)=>{
+    res.send("to keep up to date on github, update from mobile ");
+})
+
 
 app.listen(8080, (error)=>{
     if(error){
