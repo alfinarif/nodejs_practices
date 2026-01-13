@@ -7,6 +7,7 @@ app.get('/', (req, res)=>{
     console.log("Work fine");
 });
 
+//this comment to keep my self up to date on github
 
 app.get('/about', (req, res)=>{
     res.send("Hello about page");
