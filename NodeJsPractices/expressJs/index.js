@@ -87,6 +87,16 @@ app.get('/seven', (req, res)=>{
 })
 
 
+app.get('/eight', (req, res)=>{
+
+    res.clearCookie('name');
+    res.clearCookie('city');
+    res.clearCookie('age');
+    res.end('Cookie clear success');
+})
+
+
+
 
 
 
