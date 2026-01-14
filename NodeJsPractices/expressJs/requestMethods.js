@@ -7,8 +7,9 @@ app.get('/', (req, res)=>{
 
     let fname = req.header('fname');
     let lname = req.header('lname');
+    let connection = req.header('Connection');
 
-    res.end(fname + " " + lname);
+    res.end(connection);
 
 })
 
