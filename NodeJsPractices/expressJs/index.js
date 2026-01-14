@@ -7,23 +7,11 @@ app.get('/', (req, res)=>{
     console.log("Work fine");
 });
 
-//this comment to keep my self up to date on github
 
 app.get('/about', (req, res)=>{
     res.send("Hello about page");
 })
 
-app.get('/contact', (req, res)=>{
-    res.send("Hello contact page");
-})
-
-app.get('/services', (req, res)=>{
-    res.send("Hello services page");
-})
-
-app.get('/profile', (req, res)=>{
-    res.send("to keep up to date on github, update from mobile ");
-})
 
 
 app.listen(8080, (error)=>{
