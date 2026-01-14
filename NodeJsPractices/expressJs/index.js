@@ -22,6 +22,13 @@ app.delete('/service', (req, res)=>{
 })
 
 
+app.get('/three', (req, res)=>{
+    res.status(201).end(); // end() method to end response
+
+
+})
+
+
 app.listen(5050, (error)=>{
     if(error){
         console.log('Server Failed To Run...!');
