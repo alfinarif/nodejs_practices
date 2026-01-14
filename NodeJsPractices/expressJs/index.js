@@ -78,6 +78,17 @@ app.get('/six', (req, res)=>{
 })
 
 
+app.get('/seven', (req, res)=>{
+
+    res.cookie('name', 'Alfin');
+    res.cookie('city', 'Cumilla');
+    res.cookie('age', '29');
+    res.end('Cookie set success');
+})
+
+
+
+
 
 app.listen(5050, (error)=>{
     if(error){
