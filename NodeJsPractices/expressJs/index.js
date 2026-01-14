@@ -54,6 +54,18 @@ app.get('/five', (req, res)=>{
 })
 
 
+
+app.get('/bangladesh', (req, res)=>{
+    res.redirect('http://localhost:5050/saudi');
+})
+
+app.get('/saudi', (req, res)=>{
+    res.send("This is Saudi Arabia Server");
+})
+
+
+
+
 app.listen(5050, (error)=>{
     if(error){
         console.log('Server Failed To Run...!');
