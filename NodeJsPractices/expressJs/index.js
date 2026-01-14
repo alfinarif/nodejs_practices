@@ -24,9 +24,31 @@ app.delete('/service', (req, res)=>{
 
 app.get('/three', (req, res)=>{
     res.status(201).end(); // end() method to end response
-
-
 })
+
+app.get('/four', (req, res)=>{
+    let myJsonArray = [
+        {
+            name: "Alfin Arif",
+            age: 29,
+            email: "alfin@gail.com"
+        },
+        {
+            name: "Tafhim Hasan",
+            age: 32,
+            email: "tafhim@gail.com"
+        },
+        {
+            name: "Hamza Islam",
+            age: 26,
+            email: "hamza@gail.com"
+        }
+    ]
+
+    res.json(myJsonArray).end();
+})
+
+
 
 
 app.listen(5050, (error)=>{
