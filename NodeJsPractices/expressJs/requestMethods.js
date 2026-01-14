@@ -5,10 +5,11 @@ const app = express();
 
 app.get('/', (req, res)=>{
 
-    let fname = req.query.fname;
-    let lname = req.query.lname;
+    let fname = req.header('fname');
+    let lname = req.header('lname');
 
     res.end(fname + " " + lname);
+
 })
 
 
