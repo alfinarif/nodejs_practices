@@ -64,6 +64,19 @@ app.get('/saudi', (req, res)=>{
 })
 
 
+app.get('/six', (req, res)=>{
+    // response headers
+    res.append("name", "Alfin Arif");
+    res.append("city", "Cumilla");
+    res.append("age", "29");
+
+    // response body
+    // res.send("Hello world");
+
+    // response status
+    res.status(201).end('Hello worls');
+})
+
 
 
 app.listen(5050, (error)=>{
