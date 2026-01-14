@@ -49,6 +49,9 @@ app.get('/four', (req, res)=>{
 })
 
 
+app.get('/five', (req, res)=>{
+    res.download("./upload/abc.jpg");
+})
 
 
 app.listen(5050, (error)=>{
