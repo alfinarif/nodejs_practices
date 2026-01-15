@@ -19,13 +19,20 @@ const app = express();
 // });
 
 // post method with url query
+// app.post('/', (req, res)=>{
+//     let fname = req.query.fname;
+//     let lname = req.query.lname;
+//
+//     res.send(fname + " " + lname);
+// });
+
+// post method with header
 app.post('/', (req, res)=>{
-    let fname = req.query.fname;
-    let lname = req.query.lname;
+    let fname = req.header('fname');
+    let lname = req.header('lname');
 
     res.send(fname + " " + lname);
 });
-
 
 
 app.listen(5050, (error)=>{
