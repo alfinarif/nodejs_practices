@@ -13,12 +13,18 @@ const app = express();
 //
 // });
 
+// simple post request
+// app.post('/', (req, res)=>{
+//     res.send("This is simple post request");
+// });
 
+// post method with url query
 app.post('/', (req, res)=>{
-    res.send("This is simple post request");
+    let fname = req.query.fname;
+    let lname = req.query.lname;
+
+    res.send(fname + " " + lname);
 });
-
-
 
 
 
