@@ -1,6 +1,9 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
+// for parsing application/json
+app.use(bodyParser.json());
 
 
 // app.get('/', (req, res)=>{
@@ -27,11 +30,19 @@ const app = express();
 // });
 
 // post method with header
-app.post('/', (req, res)=>{
-    let fname = req.header('fname');
-    let lname = req.header('lname');
+// app.post('/', (req, res)=>{
+//     let fname = req.header('fname');
+//     let lname = req.header('lname');
+//
+//     res.send(fname + " " + lname);
+// });
 
-    res.send(fname + " " + lname);
+
+// post method with Json
+app.post('/', (req, res)=>{
+    let name = req.body;
+
+    res.send(JSON.stringify(name));
 });
 
 
