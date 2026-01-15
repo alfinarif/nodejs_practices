@@ -3,17 +3,20 @@ const express = require('express');
 const app = express();
 
 
-app.get('/', (req, res)=>{
+// app.get('/', (req, res)=>{
+//
+//     let fname = req.header('fname');
+//     let lname = req.header('lname');
+//     let connection = req.header('Connection');
+//
+//     res.end(connection);
+//
+// });
 
-    let fname = req.header('fname');
-    let lname = req.header('lname');
-    let connection = req.header('Connection');
 
-    res.end(connection);
-
+app.post('/', (req, res)=>{
+    res.send("This is simple post request");
 });
-
-
 
 
 
