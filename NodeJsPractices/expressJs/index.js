@@ -50,7 +50,7 @@ app.get('/four', (req, res)=>{
 
 
 app.get('/five', (req, res)=>{
-    res.download("./upload/abc.jpg");
+    res.download("./uploads/abc.jpg");
 })
 
 
