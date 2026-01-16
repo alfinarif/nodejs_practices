@@ -1,55 +1,26 @@
+// express module
 const express = require('express');
+// body-parser module
 const bodyParser = require('body-parser');
 
+
+// initial express js
 const app = express();
-// for parsing application/json
+// use body-parser
 app.use(bodyParser.json());
 
-
-// app.get('/', (req, res)=>{
-//
-//     let fname = req.header('fname');
-//     let lname = req.header('lname');
-//     let connection = req.header('Connection');
-//
-//     res.end(connection);
-//
-// });
-
-// simple post request
-// app.post('/', (req, res)=>{
-//     res.send("This is simple post request");
-// });
-
-// post method with url query
-// app.post('/', (req, res)=>{
-//     let fname = req.query.fname;
-//     let lname = req.query.lname;
-//
-//     res.send(fname + " " + lname);
-// });
-
-// post method with header
-// app.post('/', (req, res)=>{
-//     let fname = req.header('fname');
-//     let lname = req.header('lname');
-//
-//     res.send(fname + " " + lname);
-// });
-
-
-// post method with Json
+// post request to manage body data
 app.post('/', (req, res)=>{
-    let name = req.body;
+    let bodyData = req.body;
 
-    res.send(JSON.stringify(name));
+    res.send(bodyData);
 });
-
 
 app.listen(5050, (error)=>{
     if(error){
-        console.log('Failed to run server');
-    }else{
+        console.log('Server failed to run');
+    }
+    else {
         console.log('Server run success');
     }
 })
