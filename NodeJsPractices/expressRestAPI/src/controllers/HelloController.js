@@ -1,6 +1,13 @@
 
 
-exprots.Hello = (req, res)=>{
-    res.status(200).json({status: "Success", data: "This is my first express rest api"});
-    
+exports.HelloGet = (req, res)=>{
+    res.status(200).json({status: "Success", data: "This is my first expressJs rest api"});
+
+}
+
+
+
+exports.HelloPost = (req, res)=>{
+    res.status(201).json({status: "Success", data: "This is my first expressJs rest api"});
+
 }
