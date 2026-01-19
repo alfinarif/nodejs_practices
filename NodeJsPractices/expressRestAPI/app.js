@@ -1,12 +1,19 @@
 const express = require('express');
 const router = require('./src/routes/api');
+
 // security module
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
+
 const expressMongoSanitize = require('express-mongo-sanitize');
 const xssClean = require('xss-clean');
+
 const hpp = require('hpp');
 const cors = require('cors');
+
+// mongoose module
+const mongoose = require('mongoose');
+
 
 // express instance
 const app = express();
@@ -15,8 +22,6 @@ const app = express();
 // Security middleware implement
 app.use(cors());
 app.use(helmet());
-// app.use(expressMongoSanitize());
-// app.use(xssClean());
 app.use(hpp());
 // Implement request rate limiting
 const limiter = rateLimit({
@@ -25,6 +30,12 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
+
+// MongoDb database connection
+let URI = "mongodb://127.0.0.1:27017/students"
+let OPTION = {user: '', pass: ''}
+mongoose.connect(URI, OPTION)
+    .then((error) => console.log('Connected!'));
 
 
 
