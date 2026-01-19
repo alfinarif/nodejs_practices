@@ -7,6 +7,7 @@ const router = express.Router();
 // this is my first routing
 router.get('/hello-get', HelloController.HelloGet);
 router.post('/hello-post', HelloController.HelloPost);
+router.get('/alfinarif', HelloController.AlfinArif);
 
 
 
