@@ -32,10 +32,10 @@ app.use(limiter);
 
 
 // MongoDb database connection
-let URI = "mongodb://127.0.0.1:27017/students"
+let URI = "mongodb://127.0.0.1:27017/schools"
 let OPTION = {user: '', pass: ''}
 mongoose.connect(URI, OPTION)
-    .then((error) => console.log('Connected!'));
+    .then(() => console.log('Connected!'));
 
 
 
