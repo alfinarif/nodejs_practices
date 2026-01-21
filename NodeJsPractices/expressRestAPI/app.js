@@ -1,5 +1,6 @@
 const express = require('express');
 const router = require('./src/routes/api');
+const bodyParser = require('body-parser');
 
 // security module
 const rateLimit = require('express-rate-limit');
@@ -11,12 +12,15 @@ const xssClean = require('xss-clean');
 const hpp = require('hpp');
 const cors = require('cors');
 
+
 // mongoose module
 const mongoose = require('mongoose');
 
 
 // express instance
 const app = express();
+
+app.use(bodyParser.json());
 
 
 // Security middleware implement
