@@ -29,8 +29,31 @@ exports.readStudents = (req, res)=>{
         .catch((err)=>{
             res.status(400).json({error: 'fail', data: 'bad request'})
         })
-}
+};
 
+
+// update students data
+exports.updateStudents = (req, res)=>{
+    let id = req.params.id;
+    let querySet = {_id:id};
+    let updatedBodyData = req.body;
+
+    studentsModel.updateOne(querySet, updatedBodyData)
+        .then((data)=>{
+            res.status(200).json({
+                status: "ok",
+                msg: "information updated successfully",
+                data: data
+            });
+        })
+        .catch((err)=>{
+            res.status(404).json({
+                status: "fail",
+                msg: "Bad request",
+                error: err
+            });
+        })
+};
 
 
 
