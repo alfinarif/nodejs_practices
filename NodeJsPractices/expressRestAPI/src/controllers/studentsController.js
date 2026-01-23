@@ -1,5 +1,5 @@
 const studentsModel = require('../models/studentsModel');
-const {cache} = require("express/lib/application");
+
 
 
 // CRUD REST API DEVELOPMENT
@@ -12,7 +12,11 @@ exports.inserStudents = (req, res)=>{
             res.status(201).json({status: 'created', data: data});
         })
         .catch((err)=>{
-            res.status(400).json({error: 'fail', data: 'something went wrong'});
+            res.status(400).json({
+                status: "fail",
+                errmsg: "Bad request, something went wrong",
+                error: err
+            });
         })
 };
 
@@ -27,7 +31,11 @@ exports.readStudents = (req, res)=>{
             res.status(200).json({status: 'ok', data: data});
         })
         .catch((err)=>{
-            res.status(400).json({error: 'fail', data: 'bad request'})
+            res.status(400).json({
+                status: 'fail',
+                errmsg: "Bad request, something went wrong",
+                error: err
+            })
         })
 };
 
@@ -47,9 +55,9 @@ exports.updateStudents = (req, res)=>{
             });
         })
         .catch((err)=>{
-            res.status(404).json({
+            res.status(400).json({
                 status: "fail",
-                msg: "Bad request",
+                msg: "Bad request, something went wrong",
                 error: err
             });
         })
@@ -68,9 +76,9 @@ exports.deleteStudents = (req, res)=>{
             });
         })
         .catch((err)=>{
-            res.status(404).json({
+            res.status(400).json({
                 status: "fail",
-                errmsg: "something went wrong",
+                errmsg: "Bad request, something went wrong",
                 error: err
             });
         })
