@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
 const dataSchema = mongoose.Schema({
-    Name: String,
-    Roll: String,
-    Class: String,
-    Remarks: String
-});
+    Name: {type: String},
+    Roll: {type: Number},
+    Class: {type: String},
+    Remarks: {type: String, default: "No Remarks"}
+
+}, {versionKey: false});
 
 const dataSchemaModels = mongoose.model('students', dataSchema);
 
