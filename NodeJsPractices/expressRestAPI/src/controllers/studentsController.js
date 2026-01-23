@@ -55,6 +55,27 @@ exports.updateStudents = (req, res)=>{
         })
 };
 
+// delete students data
+exports.deleteStudents = (req, res)=>{
+    let id = req.params.id;
+    let querySet = {_id: id}
+    studentsModel.deleteOne(querySet)
+        .then((data)=>{
+            res.status(200).json({
+                status: "deleted",
+                msg: "information deleted successfully",
+                data: data
+            });
+        })
+        .catch((err)=>{
+            res.status(404).json({
+                status: "fail",
+                errmsg: "something went wrong",
+                error: err
+            });
+        })
+};
+
 
 
 

@@ -14,6 +14,7 @@ router.get('/alfinarif', HelloController.AlfinArif);
 router.post('/insertStudents', studentsController.inserStudents);
 router.get('/readStudents', studentsController.readStudents);
 router.post('/updateStudents/:id', studentsController.updateStudents);
+router.get('/deleteStudents/:id', studentsController.deleteStudents);
 
 
 
