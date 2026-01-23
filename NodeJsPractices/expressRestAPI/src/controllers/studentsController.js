@@ -1,7 +1,5 @@
 const studentsModel = require('../models/studentsModel');
 
-
-
 // CRUD REST API DEVELOPMENT
 
 // create function
