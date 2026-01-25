@@ -2,6 +2,7 @@ const express = require('express');
 
 const HelloController = require('../controllers/HelloController');
 const studentsController = require('../controllers/studentsController');
+const JWTPractice = require('../controllers/JWTPractice');
 
 const router = express.Router();
 
@@ -16,6 +17,9 @@ router.get('/readStudents', studentsController.readStudents);
 router.post('/updateStudents/:id', studentsController.updateStudents);
 router.get('/deleteStudents/:id', studentsController.deleteStudents);
 
+
+// jwt route
+router.get('/createToken', JWTPractice.CreateToken);
 
 
 module.exports = router;
