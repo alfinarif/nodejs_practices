@@ -13,7 +13,29 @@ exports.CreateToken = (req, res)=>{
         token: token
     });
 
-}
+};
+
+// decode token
+exports.DecodeToken = (req, res)=>{
+    let token = req.headers['token-key'];
+
+    jwt.verify(token, "secretKey123", (err, decoded)=>{
+        if(err){
+            res.status(401).json({
+                status: "fail",
+                errmsg: "Invalid token or something went wrong",
+                error: err
+            });
+        }
+        else {
+            res.status(200).json({
+                status: "success",
+                msg: "token has been decoded successfully",
+                data: decoded
+            });
+        }
+    })
+};
 
 
 

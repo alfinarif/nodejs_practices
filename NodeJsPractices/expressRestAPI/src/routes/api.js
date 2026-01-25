@@ -20,6 +20,7 @@ router.get('/deleteStudents/:id', studentsController.deleteStudents);
 
 // jwt route
 router.get('/createToken', JWTPractice.CreateToken);
+router.get('/decodeToken', JWTPractice.DecodeToken);
 
 
 module.exports = router;
