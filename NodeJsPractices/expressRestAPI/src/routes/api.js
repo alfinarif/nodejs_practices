@@ -22,7 +22,7 @@ const router = express.Router();
 
 
 // mongoose CRUD api and on those routes we will apply JWT Auth
-router.post('/tokenIssue', tokenIssueController.tokenIssue);
+router.get('/tokenIssue', tokenIssueController.tokenIssue);
 router.post('/insertStudents', tokenVerifyMiddleware, studentsController.inserStudents);
 router.get('/readStudents', tokenVerifyMiddleware, studentsController.readStudents);
 router.post('/updateStudents/:id', tokenVerifyMiddleware, studentsController.updateStudents);
