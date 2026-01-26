@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 let profileSchema = mongoose.Schema({
     fname: {type: String},
     lname: {type: String},
-    email: {type: String},
+    email: {type: String, unique: true},
     phone: {type: String},
     city: {type: String},
-    username: {type: String},
+    username: {type: String, unique: true},
     password: {type: String}
 
 }, {versionKey: false});
