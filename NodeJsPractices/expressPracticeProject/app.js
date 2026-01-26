@@ -40,7 +40,17 @@ mongoose.connect(URI, OPTION)
 
 
 
+// router implement with app
+app.use('/api/v1', router);
+
+// Undefined route implement
+app.use("/*splat", (req, res)=>{
+    res.status(404).json({
+        status: "noon",
+        errmsg: "404 not found routes"
+    });
+});
 
 
-
+// export app module to use on index.js
 module.exports = app;
