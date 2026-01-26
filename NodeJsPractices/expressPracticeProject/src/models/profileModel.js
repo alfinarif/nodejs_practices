@@ -12,8 +12,9 @@ let profileSchema = mongoose.Schema({
 }, {versionKey: false});
 
 
-let profileModel = mongoose.model('profile', profileSchema)
+let profileModel = mongoose.model('profiles', profileSchema)
 
 
 
 // export profile model to use create profile on profileController.js
+module.exports = profileModel;
