@@ -2,6 +2,8 @@ const express = require('express');
 
 // import profile controller
 const profileController = require('../controllers/profileController');
+// import loginController
+const loginController = require('../controllers/loginController');
 
 
 const router = express.Router();
@@ -9,7 +11,8 @@ const router = express.Router();
 
 // create profile api
 router.post('/createProfile', profileController.createProfile);
-
+// user login api
+router.post('/userLogin', loginController.userLogin);
 
 
 
