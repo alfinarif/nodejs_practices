@@ -1,6 +1,6 @@
 const profileModel = require('../models/profileModel');
 
-
+// Create Profile Controller
 exports.createProfile = (req, res)=>{
     let reqBody = req.body;
 
@@ -21,11 +21,11 @@ exports.createProfile = (req, res)=>{
         })
 }
 
-
+// Read or Select Profile Controller
 exports.selectProfile = (req, res)=>{
-    let username = "";
-
-    profileModel.find({username: username})
+    let username = req.headers['username'];
+    let projection = "fname lname email phone city username"
+    profileModel.find({username: username}, projection)
         .then((data)=>{
             if(data.length>0){
                 res.status(200).json({
@@ -38,7 +38,6 @@ exports.selectProfile = (req, res)=>{
                 res.status(401).json({
                     status: "fail",
                     errmsg: "Unauthorized request",
-                    error: err
                 });
             }
         })
@@ -51,6 +50,42 @@ exports.selectProfile = (req, res)=>{
             })
         })
 }
+
+// Update Profile Controller
+exports.updateProfile = (req, res)=>{
+    let username = req.headers['username'];
+    let updatedRequestBody = req.body;
+
+    profileModel.updateOne({username: username}, updatedRequestBody)
+        .then((data)=>{
+            if(data.length>0){
+                res.status(200).json({
+                    status: "success",
+                    msg: "user profile has been updated successfully",
+                    data: data
+                });
+            }
+            else {
+                res.status(400).json({
+                    status: "fail",
+                    errmsg: "Unauthorized request"
+                });
+            }
+        })
+        .catch((err)=>{
+            res.status(400).json({
+                status: "fail",
+                errmsg: "Unauthorized request",
+                error: err
+            });
+        })
+};
+
+// Delete Profile Controller
+
+
+
+
 
 
 

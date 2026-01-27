@@ -15,6 +15,9 @@ module.exports = (req, res, next)=>{
             });
         }
         else {
+            // get username from decoded data and pass it to profileController.js by req.headers
+            let username = decoded['data']['username'];
+            req.headers.username = username;
             // if verified this token then next() will execute controllers;
             next();
         }
