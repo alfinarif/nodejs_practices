@@ -20,3 +20,37 @@ exports.createProfile = (req, res)=>{
             });
         })
 }
+
+
+exports.selectProfile = (req, res)=>{
+    let username = "";
+
+    profileModel.find({username: username})
+        .then((data)=>{
+            if(data.length>0){
+                res.status(200).json({
+                    status: "success",
+                    msg: "Welcome to your profile",
+                    data: data
+                });
+            }
+            else {
+                res.status(401).json({
+                    status: "fail",
+                    errmsg: "Unauthorized request",
+                    error: err
+                });
+            }
+        })
+
+        .catch((err)=>{
+            res.status(401).json({
+                status: "fail",
+                errmsg: "Unauthorized request",
+                error: err
+            })
+        })
+}
+
+
+

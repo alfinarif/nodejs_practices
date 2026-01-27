@@ -10,11 +10,12 @@ const authVerifyMiddleware = require('../middlewares/authVerifyMiddleware');
 const router = express.Router();
 
 
-// create profile api
+// Create Profile Api
 router.post('/createProfile', profileController.createProfile);
-// user login api
+// User Login Api
 router.post('/userLogin', loginController.userLogin);
-
+// Select Profile Api
+router.get('/selectProfile', authVerifyMiddleware, profileController.selectProfile);
 
 
 
