@@ -5,7 +5,23 @@ const todoListModel = require('../models/todoListModel');
 exports.createToDoList = (req, res)=>{
     let reqBody = req.body;
 
-    todoListModel.create(reqBody)
+    let username = req.headers['username'];
+    let todoSubject = reqBody['todoSubject'];
+    let todoDescription = reqBody['todoDescription'];
+    let todoStatus = "New";
+    let todoCreateDate = Date.now();
+    let todoUpdateDate = Date.now();
+
+    let postBody = {
+        username: username,
+        todoSubject: todoSubject,
+        todoDescription: todoDescription,
+        todoStatus: todoStatus,
+        todoCreateDate: todoCreateDate,
+        todoUpdateDate: todoUpdateDate
+    };
+
+    todoListModel.create(postBody)
         .then((data)=>{
             res.status(201).json({
                 status: "success",

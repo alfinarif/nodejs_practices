@@ -4,8 +4,9 @@ let todoListSchema = mongoose.Schema({
     username: {type: String, unique: true},
     todoSubject: {type: String},
     todoDescription: {type: String},
-    todoStatus: {type: String, default: "new"},
-    todoDate: {type: Date, default: Date.now()}
+    todoStatus: {type: String},
+    todoCreateDate: {type: Date},
+    todoUpdateDate: {type: Date}
 
 }, {versionKey: false});
 
