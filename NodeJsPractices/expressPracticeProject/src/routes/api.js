@@ -14,8 +14,11 @@ const router = express.Router();
 router.post('/createProfile', profileController.createProfile);
 // User Login Api
 router.post('/userLogin', loginController.userLogin);
+
 // Select Profile Api
 router.get('/selectProfile', authVerifyMiddleware, profileController.selectProfile);
+// Update Profile Api
+router.post('/updateProfile', authVerifyMiddleware, profileController.updateProfile);
 
 
 

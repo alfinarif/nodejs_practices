@@ -58,7 +58,7 @@ exports.updateProfile = (req, res)=>{
 
     profileModel.updateOne({username: username}, updatedRequestBody)
         .then((data)=>{
-            if(data.length>0){
+            if(data['modifiedCount']==1){
                 res.status(200).json({
                     status: "success",
                     msg: "user profile has been updated successfully",
