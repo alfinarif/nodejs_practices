@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 let todoListSchema = mongoose.Schema({
-    username: {type: String, unique: true},
+    username: {type: String},
     todoSubject: {type: String},
     todoDescription: {type: String},
     todoStatus: {type: String},
@@ -11,7 +11,7 @@ let todoListSchema = mongoose.Schema({
 }, {versionKey: false});
 
 
-let todoListModel = mongoose.model('todolist', todoListSchema)
+let todoListModel = mongoose.model('todolists', todoListSchema)
 
 
 

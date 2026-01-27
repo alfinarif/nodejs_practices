@@ -36,4 +36,39 @@ exports.createToDoList = (req, res)=>{
                 error: err
             });
         })
-}
+};
+
+
+// Select ToDoList Controller
+exports.selectToDoList = (req, res)=>{
+    let username = req.headers['username'];
+    let querySet = {username: username};
+    let projection = "todoSubject todoDescription todoStatus todoUpdateDate";
+    todoListModel.find(querySet, projection)
+        .then((data)=>{
+            res.status(200).json({
+                status: "success",
+                msg: "your todo list read successfully",
+                data: data
+            });
+        })
+        .catch((err)=>{
+            res.status(400).json({
+                status: "fail",
+                errmsg: "something went wrong",
+                error: err
+            });
+        })
+};
+
+
+
+
+
+
+
+
+
+
+
+
