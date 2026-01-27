@@ -6,7 +6,6 @@ exports.userLogin = (req, res)=>{
     let username = req.body['username'];
     let password = req.body['password'];
 
-
     profileModel.find({username: username, password: password})
         .then((data)=>{
             if(data.length>0){

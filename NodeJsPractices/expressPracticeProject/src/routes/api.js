@@ -4,7 +4,8 @@ const express = require('express');
 const profileController = require('../controllers/profileController');
 // import loginController
 const loginController = require('../controllers/loginController');
-
+// import Auth Verification Middleware
+const authVerifyMiddleware = require('../middlewares/authVerifyMiddleware');
 
 const router = express.Router();
 
