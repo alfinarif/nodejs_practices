@@ -56,7 +56,7 @@ exports.updateProfile = (req, res)=>{
     let username = req.headers['username'];
     let updatedRequestBody = req.body;
 
-    profileModel.updateOne({username: username}, updatedRequestBody)
+    profileModel.updateOne({username: username}, {$set: updatedRequestBody}, {upsert: true})
         .then((data)=>{
             if(data['modifiedCount']==1){
                 res.status(200).json({
@@ -80,8 +80,6 @@ exports.updateProfile = (req, res)=>{
             });
         })
 };
-
-// Delete Profile Controller
 
 
 
