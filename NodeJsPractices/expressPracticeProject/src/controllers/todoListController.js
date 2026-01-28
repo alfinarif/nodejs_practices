@@ -144,7 +144,35 @@ exports.updateStatusTodoList = (req, res)=>{
 };
 
 
+// Delete TodoList Controller
+exports.deleteTodoList = (req, res)=>{
+    let id = req.body['id'];
 
+    todoListModel.deleteOne({_id: id})
+        .then((data)=>{
+            if(data['deletedCount'] == 1){
+                res.status(200).json({
+                    status: "success",
+                    msg: "todo has been deleted successfully",
+                    data: data
+                });
+            }
+            else {
+                res.status(400).json({
+                    status: "fail",
+                    errmsg: "todo does not exist here",
+                });
+            }
+
+        })
+        .catch((err)=>{
+            res.status(400).json({
+                status: "fail",
+                errmsg: "Unauthorized request",
+                error: err
+            });
+        })
+}
 
 
 

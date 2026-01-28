@@ -31,6 +31,8 @@ router.get('/selectToDoList', authVerifyMiddleware, todoListController.selectToD
 router.post('/updateTodoList', authVerifyMiddleware, todoListController.updateTodoList);
 // Status Update TodoList Api
 router.post('/updateStatusTodoList', authVerifyMiddleware, todoListController.updateStatusTodoList)
+// Delete TodoList Api
+router.post('/deleteTodoList', authVerifyMiddleware, todoListController.deleteTodoList);
 
 
 
