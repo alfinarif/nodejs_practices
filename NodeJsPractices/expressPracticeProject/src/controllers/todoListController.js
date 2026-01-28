@@ -79,11 +79,19 @@ exports.updateTodoList = (req, res)=>{
 
     todoListModel.updateOne({$and:[{username: "username"}, {_id: id}]}, {$set: updatedBody})
         .then((data)=>{
-            res.status(200).json({
-                status: "success",
-                msg: "todo list updated successfully",
-                data: data
-            });
+            if(data['modifiedCount']==1){
+                res.status(200).json({
+                    status: "success",
+                    msg: "todo list has been updated successfully",
+                    data: data
+                });
+            }
+            else {
+                res.status(400).json({
+                    status: "fail",
+                    errmsg: "Unauthorized request"
+                });
+            }
         })
         .catch((err)=>{
             res.status(203).json({
