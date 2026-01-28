@@ -175,4 +175,35 @@ exports.deleteTodoList = (req, res)=>{
 }
 
 
+// Select TodoList By Status Controller
+exports.selectTodoByStatus = (req, res)=>{
+    let username = req.headers['username'];
+    let todoStatus = req.body['todoStatus'];
+    let querySet = {username: username, todoStatus: todoStatus};
+    let projection = "todoSubject todoDescription todoStatus todoUpdateDate";
+    
+    todoListModel.find(querySet, projection)
+        .then((data)=>{
+            res.status(200).json({
+                status: "success",
+                msg: "your todo list read successfully",
+                data: data
+            });
+        })
+        .catch((err)=>{
+            res.status(400).json({
+                status: "fail",
+                errmsg: "something went wrong",
+                error: err
+            });
+        })
+};
+
+
+
+
+
+
+
+
 
