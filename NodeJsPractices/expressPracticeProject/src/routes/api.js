@@ -35,6 +35,8 @@ router.post('/updateStatusTodoList', authVerifyMiddleware, todoListController.up
 router.post('/deleteTodoList', authVerifyMiddleware, todoListController.deleteTodoList);
 // Select TodoList By Status Api
 router.post('/selectTodoByStatus', authVerifyMiddleware, todoListController.selectTodoByStatus);
+// Select TodoList By Date Api
+router.post('/selectTodoByDate', authVerifyMiddleware, todoListController.selectTodoByDate);
 
 
 

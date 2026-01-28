@@ -208,6 +208,45 @@ exports.selectTodoByStatus = (req, res)=>{
 };
 
 
+// Select TodoList By Date Controller
+exports.selectTodoByDate = (req, res)=>{
+    let username = req.headers['username'];
+    let fromDate = req.body['fromDate'];
+    let toDate = req.body['toDate'];
+
+    let querySet = {
+        $and:[
+            {username: username},
+            {todoCreateDate: {$gte: new Date(fromDate), $lte: new Date(toDate)}}
+        ]
+    }
+
+    let projection = "todoSubject todoDescription todoUpdateDate";
+
+    todoListModel.find(querySet, projection)
+        .then((data)=>{
+            if(data.length >0){
+                res.status(200).json({
+                    status: "success",
+                    msg: "Your todo list filter by todo date",
+                    data: data
+                });
+            }
+            else {
+                res.status(400).json({
+                    status: "fail",
+                    errmsg: "something went wrong",
+                });
+            }
+        })
+        .catch((err)=>{
+            res.status(400).json({
+                status: "fail",
+                errmsg: "something went wrong",
+                error: err
+            });
+        })
+};
 
 
 
