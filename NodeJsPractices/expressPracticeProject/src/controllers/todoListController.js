@@ -1,7 +1,7 @@
 const todoListModel = require('../models/todoListModel');
 
 
-// Create ToDoList Controller
+// Create TodoList Controller
 exports.createToDoList = (req, res)=>{
     let reqBody = req.body;
 
@@ -39,7 +39,7 @@ exports.createToDoList = (req, res)=>{
 };
 
 
-// Select ToDoList Controller
+// Select TodoList Controller
 exports.selectToDoList = (req, res)=>{
     let username = req.headers['username'];
     let querySet = {username: username};
@@ -62,7 +62,10 @@ exports.selectToDoList = (req, res)=>{
 };
 
 
-
+// Update TodoList Controller
+exports.updateTodoList = (req, res)=>{
+    
+}
 
 
 
