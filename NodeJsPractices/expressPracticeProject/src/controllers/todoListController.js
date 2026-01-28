@@ -179,16 +179,24 @@ exports.deleteTodoList = (req, res)=>{
 exports.selectTodoByStatus = (req, res)=>{
     let username = req.headers['username'];
     let todoStatus = req.body['todoStatus'];
-    let querySet = {username: username, todoStatus: todoStatus};
-    let projection = "todoSubject todoDescription todoStatus todoUpdateDate";
-    
+    let querySet = {$and:[{username: username}, {todoStatus: todoStatus}]}
+    let projection = "todoSubject todoDescription todoUpdateDate";
+
     todoListModel.find(querySet, projection)
         .then((data)=>{
-            res.status(200).json({
-                status: "success",
-                msg: "your todo list read successfully",
-                data: data
-            });
+            if(data.length >0){
+                res.status(200).json({
+                    status: "success",
+                    msg: "Your todo list read by todo status",
+                    data: data
+                });
+            }
+            else {
+                res.status(400).json({
+                    status: "fail",
+                    errmsg: "something went wrong",
+                });
+            }
         })
         .catch((err)=>{
             res.status(400).json({
