@@ -64,8 +64,37 @@ exports.selectToDoList = (req, res)=>{
 
 // Update TodoList Controller
 exports.updateTodoList = (req, res)=>{
-    
-}
+    let username = req.headers['username'];
+    let id = req.params.id;
+
+    let todoSubject = req.body['todoSubject'];
+    let todoDescription = req.body['todoDescription'];
+    let todoUpdateDate = Date.now();
+
+    let updatedBody = {
+        todoSubject: todoSubject,
+        todoDescription: todoDescription,
+        todoUpdateDate, todoUpdateDate
+    };
+
+    todoListModel.updateOne({$and:[{username: "username"}, {_id: id}]}, {$set: updatedBody})
+        .then((data)=>{
+            res.status(200).json({
+                status: "success",
+                msg: "todo list updated successfully",
+                data: data
+            });
+        })
+        .catch((err)=>{
+            res.status(203).json({
+                status: "fail",
+                errmsg: "Non-Authoritative Information",
+                error: err
+            });
+        })
+
+
+};
 
 
 

@@ -27,6 +27,10 @@ router.post('/updateProfile', authVerifyMiddleware, profileController.updateProf
 router.post('/createToDoList', authVerifyMiddleware, todoListController.createToDoList);
 // Select TodoList Api
 router.get('/selectToDoList', authVerifyMiddleware, todoListController.selectToDoList);
+// Update TodoList Api
+router.post('/updateTodoList/:id', authVerifyMiddleware, todoListController.updateTodoList);
+
+
 
 
 // export router to use on app.js
