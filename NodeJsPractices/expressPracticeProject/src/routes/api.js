@@ -29,6 +29,8 @@ router.post('/createToDoList', authVerifyMiddleware, todoListController.createTo
 router.get('/selectToDoList', authVerifyMiddleware, todoListController.selectToDoList);
 // Update TodoList Api
 router.post('/updateTodoList', authVerifyMiddleware, todoListController.updateTodoList);
+// Status Update TodoList Api
+router.post('/updateStatusTodoList', authVerifyMiddleware, todoListController.updateStatusTodoList)
 
 
 
