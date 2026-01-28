@@ -64,8 +64,7 @@ exports.selectToDoList = (req, res)=>{
 
 // Update TodoList Controller
 exports.updateTodoList = (req, res)=>{
-    let username = req.headers['username'];
-    let id = req.params.id;
+    let id = req.body['id'];
 
     let todoSubject = req.body['todoSubject'];
     let todoDescription = req.body['todoDescription'];
@@ -77,7 +76,7 @@ exports.updateTodoList = (req, res)=>{
         todoUpdateDate, todoUpdateDate
     };
 
-    todoListModel.updateOne({$and:[{username: "username"}, {_id: id}]}, {$set: updatedBody})
+    todoListModel.updateOne({_id: id}, {$set: updatedBody}, {$upsert: true})
         .then((data)=>{
             if(data['modifiedCount']==1){
                 res.status(200).json({
