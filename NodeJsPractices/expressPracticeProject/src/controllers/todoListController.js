@@ -73,7 +73,7 @@ exports.updateTodoList = (req, res)=>{
     let updatedBody = {
         todoSubject: todoSubject,
         todoDescription: todoDescription,
-        todoUpdateDate, todoUpdateDate
+        todoUpdateDate: todoUpdateDate
     };
 
     todoListModel.updateOne({_id: id}, {$set: updatedBody}, {$upsert: true})
@@ -104,7 +104,44 @@ exports.updateTodoList = (req, res)=>{
 };
 
 
+// Status Update TodoList Controller
+exports.updateStatusTodoList = (req, res)=>{
+    let id = req.body['id'];
 
+    let todoStatus = req.body['todoStatus'];
+    let todoUpdateDate = Date.now();
+
+    let updatedBody = {
+        todoStatus: todoStatus,
+        todoUpdateDate: todoUpdateDate
+    };
+
+    todoListModel.updateOne({_id: id}, {$set: updatedBody}, {$upsert: true})
+        .then((data)=>{
+            if(data['modifiedCount']==1){
+                res.status(200).json({
+                    status: "success",
+                    msg: "todo status has been updated successfully",
+                    data: data
+                });
+            }
+            else {
+                res.status(400).json({
+                    status: "fail",
+                    errmsg: "Unauthorized request"
+                });
+            }
+        })
+        .catch((err)=>{
+            res.status(203).json({
+                status: "fail",
+                errmsg: "Non-Authoritative Information",
+                error: err
+            });
+        })
+
+
+};
 
 
 
