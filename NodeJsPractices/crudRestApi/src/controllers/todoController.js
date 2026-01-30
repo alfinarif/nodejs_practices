@@ -29,3 +29,34 @@ exports.createTodo = (req, res)=>{
             });
         })
 };
+
+
+exports.updateTodo = (req, res)=>{
+    let username = req.headers['username'];
+    let id = req.body['id'];
+    let todoSubject = req.body['todoSubject'];
+    let todoDescription = req.body['todoDescription'];
+
+    let querySet = {$and:[{username: username}, {_id: id}]}
+
+    let reqBody = {
+        todoSubject: todoSubject,
+        todoDescription: todoDescription
+    };
+
+    todoModel.updateOne(querySet, reqBody)
+        .then((data)=>{
+            res.status(201).json({
+                status: "success",
+                msg: "Todo has been updated successfully",
+                data: data
+            });
+        })
+        .catch((err)=>{
+            res.status(400).json({
+                status: "fail",
+                errmsg: "fail to update todo",
+                error: err
+            });
+        })
+};
