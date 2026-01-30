@@ -46,11 +46,20 @@ exports.updateProfile = (req, res)=>{
 
     profileModel.updateOne(querySet, updatedBody)
         .then((data)=>{
-            res.status(200).json({
-                status: "success",
-                msg: "Successfully Updated Your Profile",
-                data: data
-            });
+            if (data['modifiedCount'] === 1) {
+                res.status(200).json({
+                    status: "success",
+                    msg: "Successfully Updated Your Profile",
+                    data: data
+                });
+            } else {
+                res.status(204).json({
+                    status: "No Content",
+                    errmsg: "There is no updated data requested",
+                    data: {}
+                });
+            }
+
         })
         .catch((err)=>{
             res.status(400).json({
