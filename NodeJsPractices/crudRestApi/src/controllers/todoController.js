@@ -31,6 +31,29 @@ exports.createTodo = (req, res)=>{
 };
 
 
+exports.readTodo = (req, res)=>{
+    let username = req.headers['username'];
+    let querySet = {username: username};
+    let projection = "username todoSubject todoDescription todoUpdateDate";
+
+    todoModel.find(querySet, projection)
+        .then((data)=>{
+            res.status(201).json({
+                status: "success",
+                msg: "Your todo list retrieve successfully",
+                data: data
+            });
+        })
+        .catch((err)=>{
+            res.status(400).json({
+                status: "fail",
+                errmsg: "fail to retrieve todos",
+                error: err
+            });
+        })
+};
+
+
 exports.updateTodo = (req, res)=>{
     let username = req.headers['username'];
     let id = req.body['id'];
