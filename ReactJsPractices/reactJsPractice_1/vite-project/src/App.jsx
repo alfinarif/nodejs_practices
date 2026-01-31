@@ -1,17 +1,19 @@
-import { useState } from 'react'
-import viteLogo from '/vite.svg'
+import Header from "./components/Header.jsx";
+import Hero from "./components/Hero.jsx";
+import ContactForm from "./components/ContactForm.jsx";
+import Footer from "./components/Footer.jsx";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = ()=>{
+    return (
+        <div>
+            <Header/>
+            <Hero/>
+            <ContactForm/>
+            <Footer/>
+        </div>
+    );
 
-  return (
-    <>
-      <div>
-        <h1>Welcome to reactJs</h1>
-      </div>
+};
 
-    </>
-  )
-}
 
-export default App
+export default App;
