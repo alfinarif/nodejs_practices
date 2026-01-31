@@ -1,8 +1,15 @@
 
 const App = ()=>{
+
+    let marks = 81;
+
     return (
         <div>
-            <button style={{color: 'red', fontSize: 20}} onClick={()=> alert("Hello world")}>Alert</button>
+            {
+                marks > 80?<h1>Brilliant Result</h1>
+                : 
+                <h1>Avarage Result</h1>
+            }
         </div>
     );
 
