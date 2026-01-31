@@ -109,6 +109,35 @@ exports.readTodoByStatus = (req, res)=>{
 };
 
 
+exports.readTodoByDate = (req, res)=>{
+    let fromDate = req.body['fromDate'];
+    let toDate = req.body['toDate'];
+    let username = req.headers['username'];
 
+    let querySet = {
+        $and:[
+            {username: username},
+            {todoCreateDate: {$gte: new Date(fromDate), $lte: new Date(toDate)}}
+        ]
+    };
+
+    let projection = "username todoSubject todoDescription todoStatus todoUpdateDate";
+
+    todoModel.find(querySet, projection)
+        .then((data)=>{
+            res.status(201).json({
+                status: "success",
+                msg: "Your todo list retrieve by date successfully",
+                data: data
+            });
+        })
+        .catch((err)=>{
+            res.status(400).json({
+                status: "fail",
+                errmsg: "fail to retrieve todos by date",
+                error: err
+            });
+        })
+};
 
 
