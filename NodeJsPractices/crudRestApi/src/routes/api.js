@@ -17,7 +17,7 @@ router.post('/updateProfile', authVerifyMiddleware, profileControler.updateProfi
 router.post('/createTodo', authVerifyMiddleware, todoController.createTodo);
 router.get('/readTodo', authVerifyMiddleware, todoController.readTodo);
 router.post('/updateTodo', authVerifyMiddleware, todoController.updateTodo);
-
+router.post('/readTodoByStatus', authVerifyMiddleware, todoController.readTodoByStatus);
 
 
 

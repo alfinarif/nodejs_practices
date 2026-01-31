@@ -83,3 +83,32 @@ exports.updateTodo = (req, res)=>{
             });
         })
 };
+
+
+exports.readTodoByStatus = (req, res)=>{
+    let todoStatus = req.body['todoStatus'];
+    let username = req.headers['username'];
+    let querySet = {$and:[{username: username}, {todoStatus: todoStatus}]};
+    let projection = "username todoSubject todoDescription todoStatus todoUpdateDate";
+
+    todoModel.find(querySet, projection)
+        .then((data)=>{
+            res.status(201).json({
+                status: "success",
+                msg: "Your todo list retrieve by status successfully",
+                data: data
+            });
+        })
+        .catch((err)=>{
+            res.status(400).json({
+                status: "fail",
+                errmsg: "fail to retrieve todos by status",
+                error: err
+            });
+        })
+};
+
+
+
+
+
