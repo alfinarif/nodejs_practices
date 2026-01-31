@@ -34,7 +34,7 @@ exports.createTodo = (req, res)=>{
 exports.readTodo = (req, res)=>{
     let username = req.headers['username'];
     let querySet = {username: username};
-    let projection = "username todoSubject todoDescription todoUpdateDate";
+    let projection = "username todoSubject todoDescription todoStatus todoUpdateDate";
 
     todoModel.find(querySet, projection)
         .then((data)=>{
