@@ -1,24 +1,21 @@
 
-const App = ()=>{
 
-    let status = true;
-
-    if(status == true){
-        return (
-            <div>
-                <h2>Login Status</h2>
-                <button>Logout</button>
-            </div>
-        );
+const loginStatusBtn = (status)=>{
+    if(status){
+        return <button>Logout</button>
     }
     else {
-        return (
-            <div>
-                <h2>Login Status</h2>
-                <button>Login</button>
-            </div>
-        );
+        return <button>Login</button>
     }
+};
+const App = ()=>{
+
+    return (
+        <div>
+            <h1>Login Status</h1>
+            {loginStatusBtn(false)}
+        </div>
+    );
 
 };
 
