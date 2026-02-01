@@ -1,21 +1,17 @@
 
 
-const loginStatusBtn = (status)=>{
-    if(status){
-        return <button>Logout</button>
-    }
-    else {
-        return <button>Login</button>
-    }
-};
-const App = ()=>{
 
-    return (
-        <div>
-            <h1>Login Status</h1>
-            {loginStatusBtn(false)}
-        </div>
-    );
+const App = ()=>{
+    let status = false;
+
+    switch (status) {
+        case true:
+            return <button>Logout</button>
+        case false:
+            return <button>Login</button>
+        default:
+            return <h1>Nothing returns</h1>
+    }
 
 };
 
