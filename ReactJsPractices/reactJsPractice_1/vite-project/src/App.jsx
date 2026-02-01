@@ -1,19 +1,24 @@
 
 const App = ()=>{
 
-    let city = ['Dhaka', 'Cumilla', 'Khulna', 'Borishal'];
+    let status = true;
 
-    return (
-        <div>
-            <select>
-                {
-                    city.map((item, i)=>{
-                        return <option key={i.toString()}>{item}</option>
-                    })
-                }
-            </select>
-        </div>
-    );
+    if(status == true){
+        return (
+            <div>
+                <h2>Login Status</h2>
+                <button>Logout</button>
+            </div>
+        );
+    }
+    else {
+        return (
+            <div>
+                <h2>Login Status</h2>
+                <button>Login</button>
+            </div>
+        );
+    }
 
 };
 
