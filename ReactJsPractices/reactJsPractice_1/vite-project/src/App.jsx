@@ -1,13 +1,13 @@
 
 const App = ()=>{
 
-    let item = ['A', 'B', 'C', 'D'];
+    let city = ['Dhaka', 'Cumilla', 'Khulna', 'Borishal'];
 
     return (
         <div>
             <select>
                 {
-                    item.map((item, i)=>{
+                    city.map((item, i)=>{
                         return <option key={i.toString()}>{item}</option>
                     })
                 }
