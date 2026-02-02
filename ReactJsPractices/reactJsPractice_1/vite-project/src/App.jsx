@@ -1,19 +1,12 @@
-
+import Hero from "./components/Hero.jsx";
 
 
 const App = ()=>{
-    let status = false;
+    let status = true;
 
     return (
         <div>
-            {(()=>{
-                if(status == true){
-                    return <button>Logout</button>
-                }
-                else {
-                    return <button>Login</button>
-                }
-            })()}
+            <Hero title="This is props" des="This is a description of this props section"/>
         </div>
     )
 

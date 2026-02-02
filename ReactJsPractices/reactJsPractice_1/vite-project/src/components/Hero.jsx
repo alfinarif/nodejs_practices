@@ -1,9 +1,11 @@
 
 
-const Hero = ()=>{
+const Hero = (props)=>{
     return(
         <div>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMb9N5poz4srf-2qnXM7nGMo5mfpeiIdGU9w&s"/>
+            <h1>{props.title}</h1>
+            <br/>
+            <p>{props.des}</p>
         </div>
     );
 };
