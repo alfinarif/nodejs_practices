@@ -2,11 +2,18 @@ import Hero from "./components/Hero.jsx";
 
 
 const App = ()=>{
-    let status = true;
+    let itemObj = {
+        id: "232",
+        name: "Alfin Arif",
+        email: "alfin@gmail.com",
+        age: 29,
+        city: "Cumilla",
+        remark: "Backend Developer"
+    }
 
     return (
         <div>
-            <Hero title="This is props" des="This is a description of this props section"/>
+            <Hero item={itemObj}/>
         </div>
     )
 
