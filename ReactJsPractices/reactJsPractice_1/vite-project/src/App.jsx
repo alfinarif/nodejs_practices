@@ -2,18 +2,14 @@ import Hero from "./components/Hero.jsx";
 
 
 const App = ()=>{
-    let itemObj = {
-        id: "232",
-        name: "Alfin Arif",
-        email: "alfin@gmail.com",
-        age: 29,
-        city: "Cumilla",
-        remark: "Backend Developer"
+
+    const buttonClick = ()=>{
+        alert('Hello world');
     }
 
     return (
         <div>
-            <Hero item={itemObj}/>
+            <Hero btnClick={buttonClick}/>
         </div>
     )
 
