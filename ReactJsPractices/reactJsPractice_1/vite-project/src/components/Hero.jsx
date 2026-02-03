@@ -3,7 +3,7 @@
 const Hero = (props)=>{
     return(
         <div>
-            <button onClick={props.btnClick}>Alert</button>
+            <h1>This is hero section</h1>
         </div>
     );
 };
