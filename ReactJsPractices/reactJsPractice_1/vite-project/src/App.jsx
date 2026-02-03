@@ -1,18 +1,18 @@
+import {useRef} from "react";
 
 
 const App = ()=>{
 
-    const postFormData = (event)=>{
-        event.preventDefault();
-        alert('form submited')
+    let myTitleId = useRef();
+    let change = ()=>{
+        myTitleId.current.innerText = "Hello World"
     }
 
     return (
         <div>
-            <form onSubmit={postFormData}>
-                <input placeholder="name"/>
-                <button type="submit">Submit</button>
-            </form>
+            <h1 ref={myTitleId}></h1>
+
+            <button onClick={change}>Click</button>
         </div>
     );
 
