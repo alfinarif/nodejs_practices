@@ -2,12 +2,15 @@
 
 const App = ()=>{
 
+    const Demo = ()=>{
+        alert('Hello world')
+    }
 
     return (
         <div>
-            <button onClick={()=>{alert('Hello world')}}>Submit</button>
+            <button onClick={Demo}>Submit</button>
         </div>
-    )
+    );
 
 };
 
