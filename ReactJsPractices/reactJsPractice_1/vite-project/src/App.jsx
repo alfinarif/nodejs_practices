@@ -3,16 +3,17 @@ import {useRef} from "react";
 
 const App = ()=>{
 
-    let myTitleId = useRef();
-    let change = ()=>{
-        myTitleId.current.innerText = "Hello World"
+    let formData = (event)=>{
+        event.preventDefault();
+        alert("hello world")
     }
 
     return (
         <div>
-            <h1 ref={myTitleId}></h1>
-
-            <button onClick={change}>Click</button>
+            <form onSubmit={formData}>
+                <input placeholder="First Name"/>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     );
 
