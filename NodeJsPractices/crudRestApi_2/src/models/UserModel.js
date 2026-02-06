@@ -8,8 +8,8 @@ const registrationSchema = mongoose.Schema({
     password: {type: String},
     createDate: {type: Date, default: Date.now()},
     updateDate: {type: Date, default: Date.now()}
-});
+},{versionKey: false});
 
 const registrationModel = mongoose.model('users', registrationSchema);
 
-module export = registrationModel;
+module.exports = registrationModel;
