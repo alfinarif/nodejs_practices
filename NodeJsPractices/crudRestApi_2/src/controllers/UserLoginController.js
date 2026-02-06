@@ -8,14 +8,14 @@ exports.userLogin = (req, res)=>{
 
 
     let querySet = {email:email, password: password};
-    let projection = "name email phone createDate updateDate";
+    let projection = "name email phone password createDate updateDate";
 
     UserModel.find(querySet, projection)
         .then((data)=>{
             if(data.length>0){
                 let payload = {
                     exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 30),
-                    data: {username: data[0]['username'], password: data[0]['password']}
+                    data: {email: data[0]['email'], password: data[0]['password']}
                 };
                 let token = JWT.sign(payload, "alfinarif");
 
