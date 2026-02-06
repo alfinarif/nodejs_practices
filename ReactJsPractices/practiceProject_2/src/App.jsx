@@ -1,12 +1,20 @@
+import React from 'react';
 
+class App extends React.Component{
+  render(){
 
-function App() {
+    return (
 
-  return (
-    <div>
-      <h1>Learn with sumit</h1>
-    </div>
-  )
+        <h1 className="heading">
+          <span className="text">Hello {new Date().toLocaleTimeString(this.props.locale)}</span>
+        </h1>
+
+    );
+
+  }
+
 }
 
-export default App
+
+
+export default App;
