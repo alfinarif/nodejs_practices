@@ -48,13 +48,70 @@ exports.readTask = (req, res)=>{
 
 };
 
-
 exports.updateTask = (req, res)=>{
+    let email = req.headers['email'];
+    let id = req.body['id'];
+    let title = req.body['title'];
+    let description = req.body['description'];
+    let status = req.body['status'];
+    let updateDate = Date.now();
 
+    let querySet = {
+        $and:[
+            {email: email},
+            {_id: id}
+        ]
+    }
+
+    let formBody = {title: title, description: description, status: status, updateDate: updateDate};
+
+    TaskModel.updateOne({email: email}, formBody)
+        .then((data)=>{
+            res.status(201).json({
+                status: "success",
+                msg: "Your task updated successfully",
+                data: data
+            });
+        })
+        .catch((err)=>{
+            res.status(400).json({
+                status: "fail",
+                errmsg: "There is something wrong",
+                error: err
+            });
+        })
 };
 
 
 exports.deleteTask = (req, res)=>{
+    let email = req.headers['email'];
+    let id = req.body['id'];
+
+    let querySet = {
+        $and:[
+            {email: email},
+            {_id: id}
+        ]
+    };
+
+    TaskModel.deleteOne(querySet)
+        .then((data)=>{
+            res.status(201).json({
+                status: "success",
+                msg: "Your task deleted successfully",
+                data: data
+            });
+        })
+        .catch((err)=>{
+            res.status(400).json({
+                status: "fail",
+                errmsg: "There is something wrong",
+                error: err
+            });
+        })
+
+
+
 
 };
 
