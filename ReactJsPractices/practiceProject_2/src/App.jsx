@@ -1,20 +1,14 @@
-import React from 'react';
+import ClockComponent from './components/ClockComponent';
+import ClockPractice from './components/ClockPractice';
 
-class App extends React.Component{
-  render(){
-
-    return (
-
-        <h1 className="heading">
-          <span className="text">Hello {new Date().toLocaleTimeString(this.props.locale)}</span>
-        </h1>
-
-    );
-
-  }
-
-}
-
-
+const App = () => {
+  return (
+    <div>
+      <ClockComponent locale="bn-BD"/>
+      <br/>
+      <ClockPractice locale="bn-BD"/>
+    </div>
+  );
+};
 
 export default App;
