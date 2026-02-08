@@ -1,29 +1,32 @@
 import { Component } from 'react';
 
 class ClockComponent4 extends Component {
-    state = {date: new Date(), locale: 'bn-BD'};
+    constructor(props){
+        super(props);
+        this.state = {date: new Date(), locale: 'bn-BD'};
+    }
 
-    tick(){
+    tick = ()=>{
         this.setState({
             date: new Date()
         })
     }
 
-    componentDidMount(){
+    componentDidMount = ()=>{
         this.clockTimer = setInterval(()=>{
             this.tick();
         })
     }
 
-    componentWillUnmount(){
+    componentWillUnmount = ()=>{
         clearInterval(()=>{
             this.clockTimer;
         })
     }
 
-    handleClick = ()=>{
+    handleClick = (locale)=>{
         this.setState({
-            locale: 'en-US',
+            locale
         });
 
     }
@@ -37,7 +40,7 @@ class ClockComponent4 extends Component {
                         {this.state.date.toLocaleTimeString(this.state.locale)}
                     </span>
                 </h1>
-                <button onClick={this.handleClick}>Click Here</button>
+                <button onClick={()=>this.handleClick('en-US')}>Click Here</button>
             </div>
         );
     }
