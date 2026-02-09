@@ -1,10 +1,11 @@
 import { Component } from 'react';
+
 import SubmitButton from './SubmitButton';
 
 class ClockPractice5 extends Component {
     constructor(props){
         super(props);
-        this.state = {date: new Date(), locale: "en-US"};
+        this.state = {date: new Date(), locale: "bn-BD"};
 
     }
 
@@ -36,15 +37,32 @@ class ClockPractice5 extends Component {
 
 
     render() {
+        const {date, locale} = this.state;
+        let button;
+
+        if(locale === "bn-BD"){
+            button = (
+                <SubmitButton change={this.submitButtonHandler} locale="en-US"/>
+            )
+        } else {
+            button = (
+                <SubmitButton change={this.submitButtonHandler} locale="bn-BD"/>
+            )
+        }
+
+
         return (
             <div>
                 <h1>
                     <span>
-                        {this.state.date.toLocaleTimeString(this.state.locale)}
+                        {date.toLocaleTimeString(locale)}
                     </span>
                 </h1>
 
-                <SubmitButton change={this.submitButtonHandler} locale="bn-BD"/>
+                
+                {button}
+
+
             </div>
         );
     }
