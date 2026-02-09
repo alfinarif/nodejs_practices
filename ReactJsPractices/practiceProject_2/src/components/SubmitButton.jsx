@@ -5,9 +5,11 @@ class SubmitButton extends Component {
         const {change, locale} = this.props;
         return (
             <div>
-                <button type="button" onClick={()=>change(locale)}>Click Here</button>
+                <button type="button" onClick={()=>change(locale)}>
+                    {locale === 'bn-BD' ? 'Change Clock' : 'গড়ি পরিবর্তন করুন'}
+                </button>
             </div>
-        );
+        ); 
     }
 }
 
