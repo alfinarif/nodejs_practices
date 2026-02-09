@@ -60,7 +60,12 @@ class ClockPractice5 extends Component {
                 </h1>
 
                 
-                {button}
+                {/* {button} */}
+
+                {locale === 'bn-BD' ? (<SubmitButton change={this.submitButtonHandler} locale="en-US"/>)
+                : 
+                (<SubmitButton change={this.submitButtonHandler} locale="bn-BD"/>)
+                }
 
 
             </div>
