@@ -1,4 +1,4 @@
-import ClockComponent4 from './components/ClockComponent4';
+import ClockPractice5 from './components/ClockPractice5';
 
 const App = () => {
   return (
@@ -11,7 +11,9 @@ const App = () => {
 
       {/* <ClockPractice3/> */}
 
-      <ClockComponent4/>
+      {/* <ClockComponent4/> */}
+
+      <ClockPractice5/>
 
     </div>
   );
