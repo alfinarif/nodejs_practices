@@ -1,6 +1,8 @@
-import ClockPractice5 from './components/ClockPractice5';
+import ClockList from './components/ClockList';
 
 const App = () => {
+  const quantities = [1,2,3];
+  
   return (
     <div>
       {/* <ClockComponent locale="bn-BD"/>
@@ -13,7 +15,9 @@ const App = () => {
 
       {/* <ClockComponent4/> */}
 
-      <ClockPractice5/>
+      {/* <ClockPractice5/> */}
+
+      <ClockList quantities={quantities}/>
 
     </div>
   );
