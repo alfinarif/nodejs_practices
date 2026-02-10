@@ -6,6 +6,7 @@ class FormPractice extends Component {
         title: "input",
         textarea: "textarea",
         library: "reactJs",
+        isAwesome: true,
     }
 
     changeHandler = (e)=>{
@@ -28,21 +29,33 @@ class FormPractice extends Component {
             library: e.target.value,
 
             })
+        }else if(e.target.type === "checkbox") {
+            this.setState({
+            isAwesome: e.target.checked,
+
+            })
         } else {
             console.log('Nothing here!')
         }
 
         
+    };
+
+
+    submitHandler = (e)=>{
+        const {title, textarea, library, isAwesome} = this.state;
+        e.preventDefault();
+        console.log(title, textarea, library, isAwesome)
+
     }
 
     render() {
-        const {title, textarea, library} = this.state;
-        console.log(title)
-        console.log(textarea)
-        console.log(library)
+        const {title, textarea, library, isAwesome} = this.state;
+        
+
         return (
             <div>
-                <form>
+                <form onSubmit={this.submitHandler}> 
                     <input 
                         type="text" 
                         placeholder="Enter Name" 
@@ -72,7 +85,17 @@ class FormPractice extends Component {
                     <br/>
                     <br/>
 
-                    <input type="checkbox"/>
+                    <input 
+                        type="checkbox" 
+                        checked={isAwesome} 
+                        onChange={this.changeHandler} 
+                    />
+
+                    <br/>
+                    <br/>
+
+                    <input type="submit" value="Submit"/>
+
                 </form>
                 
             </div>
