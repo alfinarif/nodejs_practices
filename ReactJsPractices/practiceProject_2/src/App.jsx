@@ -1,4 +1,4 @@
-import FormPractice from './components/FormPractice';
+import FormPractice2 from './components/FormPractice2';
 
 const App = () => {
   const quantities = [1,2,3];
@@ -19,7 +19,9 @@ const App = () => {
 
       {/* <ClockList quantities={quantities}/> */}
 
-      <FormPractice/>
+      {/* <FormPractice/> */}
+
+      <FormPractice2/>
 
     </div>
   );
