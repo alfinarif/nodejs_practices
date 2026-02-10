@@ -38,6 +38,7 @@ class ClockPractice5 extends Component {
 
     render() {
         const {date, locale} = this.state;
+        
         let button;
 
         if(locale === "bn-BD"){
