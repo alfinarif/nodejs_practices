@@ -1,4 +1,4 @@
-import FormPractice2 from './components/FormPractice2';
+import FormPractice3 from './components/FormPractice3';
 
 const App = () => {
   const quantities = [1,2,3];
@@ -21,7 +21,9 @@ const App = () => {
 
       {/* <FormPractice/> */}
 
-      <FormPractice2/>
+      {/* <FormPractice2/> */}
+
+      <FormPractice3/>
 
     </div>
   );
