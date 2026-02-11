@@ -14,7 +14,9 @@ export function convert(temperature, convertTo){
         return "";
     } 
 
-    const output = convertT(input);
+    const output = convertTo(input);
     const rounded = Math.round(output * 1000) / 1000;
-    const rounded.toString();
-}
+
+    return rounded.toString();
+};
+

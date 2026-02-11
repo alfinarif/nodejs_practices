@@ -5,8 +5,7 @@ const scaleNames = {
 }
 
 
-const TemparetureInput = (scale, temperature, onTamperatureChange) => {
-
+const TemparetureInput = ({scale, temperature, onTamperatureChange}) => {
         return (
 
             <fieldset>
@@ -14,7 +13,7 @@ const TemparetureInput = (scale, temperature, onTamperatureChange) => {
                 <input 
                     type="text" 
                     value={temperature} 
-                    onChange={onTamperatureChange} 
+                    onChange={(e) => onTamperatureChange(e, scale)} 
                 />
             </fieldset>
 
