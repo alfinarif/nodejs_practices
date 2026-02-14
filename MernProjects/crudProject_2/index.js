@@ -11,7 +11,6 @@ dotenv.config({path: 'config.env'});
 
 
 
-
 app.listen(process.env.RUNNING_PORT, (err)=>{
     if(err){
         console.log('There is something wrong');
