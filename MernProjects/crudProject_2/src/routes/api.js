@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 
-router.post('/create', crudController.createTodo);
+router.get('/create', crudController.createTodo);
 
 
 
