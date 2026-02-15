@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 
-class HomePage extends Component {
+class UpdateForm extends Component {
     render() {
         return (
             <div>
-                <h1>This is Home page and welcome to mern project</h1>
+                <h1>update form</h1>
             </div>
         );
     }
 }
 
-export default HomePage;
+export default UpdateForm;
