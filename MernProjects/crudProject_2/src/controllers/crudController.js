@@ -90,7 +90,7 @@ exports.deleteTodo = (req, res)=>{
 
     crudModel.deleteOne(querySet)
         .then((data)=>{
-            res.status(201).json({
+            res.status(200).json({
                 status: "success",
                 msg: "Todo deleted successfully",
                 data: data
