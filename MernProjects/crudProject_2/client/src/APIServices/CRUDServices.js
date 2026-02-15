@@ -9,7 +9,7 @@ exports.Create = ()=>{
 
 exports.Read = ()=>{
     let URL = "/api/v1/readTodo";
-    axios.post().then().catch()
+    axios.get().then().catch()
 }
 
 
@@ -21,7 +21,7 @@ exports.Update = (id)=>{
 
 exports.Delete = (id)=>{
     let URL = "/api/v1/deleteTodo/"+id;
-    axios.post().then().catch()
+    axios.get().then().catch()
 }
 
 
