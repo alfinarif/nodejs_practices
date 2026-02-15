@@ -7,6 +7,12 @@ class ListTable extends Component {
                 {/* Header */}
                 <Card className="shadow-lg border-0">
                     <Card.Body>
+                        <h2 className="text-center mb-4">My Todo List</h2>
+
+                        <InputGroup className="mb-4">
+                            <Form.Control placeholder="Enter new task..." />
+                            <Button variant="primary">Add</Button>
+                        </InputGroup>
 
                         {/* Todo Items */}
                         <Row>
