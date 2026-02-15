@@ -30,7 +30,7 @@ app.use(hpp());
 
 // database
 URI = process.env.DATABASE_URI;
-OPTION = {user: "", pass: ""};
+OPTION = {user: "", pass: "", autoIndex: true};
 mongoose.connect(URI, OPTION)
     .then(()=>{
         console.log('Database connected successfully');
@@ -45,17 +45,17 @@ app.use(limiter);
 
 
 
-// Managing Frontend Routing
-app.use(express.static('client/dist'));
-app.get('/*spla', (req, res)=>{
-    req.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'))
-});
-
-
-
-
 // Managing Backend Api Routing
 app.use('/api/v1', router);
+
+
+
+// Managing Frontend Routing
+app.use(express.static('client/dist'));
+app.get('/*splat', (req, res)=>{
+    res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
+});
+
 
 
 

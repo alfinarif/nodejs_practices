@@ -5,7 +5,10 @@ const router = express.Router();
 
 
 
-router.post('/create', crudController.createTodo);
+router.post('/createTodo', crudController.createTodo);
+router.get('/readTodo', crudController.readTodo);
+router.post('/updateTodo/:id', crudController.updateTodo);
+router.post('/deleteTodo/:id', crudController.deleteTodo);
 
 
 
