@@ -33,7 +33,7 @@ const CreateForm =()=> {
             errorToast("Product total price is required");
         }
         else {
-            successToast("Everything is fine");
+            successToast("Product created successfully");
         }
 
 

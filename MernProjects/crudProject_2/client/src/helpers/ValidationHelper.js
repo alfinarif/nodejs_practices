@@ -2,7 +2,7 @@ import toast from "react-hot-toast";
 
 class ValidationHelper {
 
-    isEmpty = (value)=>{
+    isEmpty(value){
         if(value.length === 0){
             return true;
         } else {
@@ -10,16 +10,19 @@ class ValidationHelper {
         }
     };
 
-    successToast = (msg)=>{
+    successToast(msg){
         toast.success(msg);
     }
 
-    errorToast = (msg)=>{
+
+    errorToast(msg){
         toast.error(msg);
     }
 
 
-};
+}
 
 
-export const {isEmpty, successToast, errorToast} = ValidationHelper;
+export const {isEmpty, successToast, errorToast} = new ValidationHelper();
+
+
