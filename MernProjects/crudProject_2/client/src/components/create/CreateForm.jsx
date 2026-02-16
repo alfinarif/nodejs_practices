@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import {isEmpty, successToast, errorToast} from "../../helpers/ValidationHelper.js";
-
+import {CreateProduct, ReadProduct, UpdateProduct, DeleteProduct} from "../../APIServices/CRUDServices.js";
 
 const CreateForm =()=> {
 
@@ -33,7 +33,22 @@ const CreateForm =()=> {
             errorToast("Product total price is required");
         }
         else {
-            successToast("Product created successfully");
+            // calling create api
+            CreateProduct(product_name, product_code, product_img, product_quantity, product_unitPrice, product_totalPrice).then((result)=>{
+                    if(result === true){
+                        successToast("Product created successfully");
+                        // set value empty
+                        name.value = "";
+                        code.value = "";
+                        img.value = "";
+                        quantity.value = "";
+                        unitPrice.value = "";
+                        totalPrice.value = "";
+                    }else {
+                        errorToast("Request failed try again")
+                    }
+                });
+
         }
 
 
