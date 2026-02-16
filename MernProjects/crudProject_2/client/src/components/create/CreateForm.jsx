@@ -1,6 +1,7 @@
-import React, {Component, useRef} from 'react';
+import React, {useRef} from 'react';
+import {isEmpty, successToast, errorToast} from "../../helpers/ValidationHelper.js";
 
-import Form from 'react-bootstrap/Form';
+
 const CreateForm =()=> {
 
     let {name, code, img, quantity, unitPrice, totalPrice} = useRef();
@@ -13,8 +14,32 @@ const CreateForm =()=> {
         const product_unitPrice = unitPrice.value;
         const product_totalPrice = totalPrice.value;
 
-        alert(product_name)
-    }
+        if(isEmpty(product_name)){
+            errorToast("Product name required");
+        }
+        else if(isEmpty(product_code)){
+            errorToast("Product code is required");
+        }
+        else if(isEmpty(product_img)){
+            errorToast("Product image is required");
+        }
+        else if(isEmpty(product_quantity)){
+            errorToast("Product quantity is required");
+        }
+        else if(isEmpty(product_unitPrice)){
+            errorToast("Product unit price is required");
+        }
+        else if(isEmpty(product_totalPrice)){
+            errorToast("Product total price is required");
+        }
+        else {
+            successToast("Everything is fine");
+        }
+
+
+
+
+    };
 
         return (
             <div className="container">
