@@ -28,9 +28,9 @@ app.use(hpp());
 
 
 
-// database
-URI = process.env.DATABASE_URI;
-OPTION = {user: "", pass: "", autoIndex: true};
+// database connection
+const URI = process.env.DATABASE_URI;
+const OPTION = {user: "crudapp", pass: "crudapp", autoIndex: true};
 mongoose.connect(URI, OPTION)
     .then(()=>{
         console.log('Database connected successfully');
