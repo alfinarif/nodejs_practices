@@ -1,10 +1,11 @@
 import React, {useRef} from 'react';
 import {isEmpty, successToast, errorToast} from "../../helpers/ValidationHelper.js";
 import {CreateProduct, ReadProduct, UpdateProduct, DeleteProduct} from "../../APIServices/CRUDServices.js";
+import FullScreenLoader from "../common/FullScreenLoader.jsx";
 
 const CreateForm =()=> {
 
-    let {name, code, img, quantity, unitPrice, totalPrice} = useRef();
+    let {name, code, img, quantity, unitPrice, totalPrice, loader} = useRef();
 
     const CreateProductHandler = ()=>{
         const product_name = name.value;
@@ -33,9 +34,15 @@ const CreateForm =()=> {
             errorToast("Product total price is required");
         }
         else {
+            // loader showing
+            loader.classList.remove("d-none");
             // calling create api
-            CreateProduct(product_name, product_code, product_img, product_quantity, product_unitPrice, product_totalPrice).then((result)=>{
-                    if(result === true){
+            CreateProduct(product_name, product_code, product_img, product_quantity, product_unitPrice, product_totalPrice)
+                .then((result)=>{
+                // loader hide
+                loader.classList.add("d-none");
+
+                if(result === true){
                         successToast("Product created successfully");
                         // set value empty
                         name.value = "";
@@ -89,6 +96,9 @@ const CreateForm =()=> {
                     <div className="col-md-4 p-2">
                         <button onClick={CreateProductHandler} className="btn btn-primary">Create Product</button>
                     </div>
+                </div>
+                <div className="d-none" ref={(div)=> loader=div}>
+                    <FullScreenLoader/>
                 </div>
             </div>
         );
