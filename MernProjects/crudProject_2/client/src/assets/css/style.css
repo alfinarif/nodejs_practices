@@ -28,3 +28,8 @@ body{
 .loader-size {
     width: 120px;
 }
+
+.list-image{
+    width: 25px;
+    height: auto;
+}
