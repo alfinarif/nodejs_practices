@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {NavLink} from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -8,6 +8,7 @@ class AppNavBar extends Component {
     render() {
         return (
             <Navbar bg="primary" data-bs-theme="dark">
+                <Toaster/>
                 <Container>
                     <Navbar.Brand href="/">CRUD-APP</Navbar.Brand>
                     <Nav className="me-auto">

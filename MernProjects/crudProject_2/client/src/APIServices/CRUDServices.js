@@ -47,7 +47,7 @@ class CRUDServices {
 
 
     UpdateProduct = (id, name, code, img, quantity, unitPrice, totalPrice)=>{
-        let URL = "localhost:5050/api/v1/updateTodo/"+id;
+        let URL = "http://localhost:5050/api/v1/updateTodo/"+id;
         let postBody = {
             name: name,
             code: code,
@@ -73,7 +73,7 @@ class CRUDServices {
 
 
     DeleteProduct = (id)=>{
-        let URL = "localhost:5050/api/v1/deleteTodo/"+id;
+        let URL = "http://localhost:5050/api/v1/deleteTodo/"+id;
         return axios.get(URL)
             .then((res)=>{
                 if(res.status === 200){

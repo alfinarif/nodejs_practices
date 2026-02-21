@@ -1,6 +1,7 @@
 import React, {Component, useEffect, useState} from 'react';
-import {ReadProduct} from "../../APIServices/CRUDServices.js";
+import {DeleteProduct, ReadProduct} from "../../APIServices/CRUDServices.js";
 import FullScreenLoader from "../common/FullScreenLoader.jsx";
+import {errorToast, successToast} from "../../helpers/ValidationHelper.js";
 const ListTable = ()=>{
     let [dataList, setDataList] = useState([]);
 
@@ -12,6 +13,22 @@ const ListTable = ()=>{
                 console.log(result)
             })
     }, []);
+
+
+    const deleteProduct = (id)=>{
+        DeleteProduct(id)
+            .then((result)=>{
+                if(result === true){
+                    successToast("Product deleted successfully")
+                }else {
+                    errorToast("Request failed try again!")
+                }
+            })
+    };
+
+    const updateProduct = (id)=>{
+        alert(id);
+    }
 
 
     if(dataList.length >0){ // if statement
@@ -41,9 +58,9 @@ const ListTable = ()=>{
                                     <td>{item.unitPrice}</td>
                                     <td>{item.totalPrice}</td>
                                     <td>
-                                        <button className="mx-1 btn btn-primary">Edit</button>
+                                        <button onClick={updateProduct.bind(this, item._id)} className="mx-1 btn btn-primary">Edit</button>
 
-                                        <button className="mx-1 btn btn-danger">Delete</button>
+                                        <button onClick={deleteProduct.bind(this, item._id)} className="mx-1 btn btn-danger">Delete</button>
                                     </td>
                                 </tr>
                             )
