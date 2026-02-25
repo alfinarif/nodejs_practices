@@ -1,4 +1,5 @@
 
+import Counter from "./components/FuncComponents/Counter";
 import Todo from "./components/FuncComponents/Todo";
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
       {/* <Calculator/> */}
 
       <Todo/>
+      <Counter/>
 
     </div>
   );
