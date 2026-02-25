@@ -1,7 +1,7 @@
 import Calculator from './components/Calculator';
 
 const App = () => {
-  const quantities = [1,2,3];
+  //const quantities = [1,2,3];
   
   return (
     <div>
