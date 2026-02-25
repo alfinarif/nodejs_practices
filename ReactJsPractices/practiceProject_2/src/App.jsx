@@ -1,4 +1,5 @@
-import Calculator from './components/Calculator';
+
+import Todo from "./components/FuncComponents/Todo";
 
 const App = () => {
   //const quantities = [1,2,3];
@@ -25,7 +26,9 @@ const App = () => {
 
       {/* <FormPractice3/> */}
 
-      <Calculator/>
+      {/* <Calculator/> */}
+
+      <Todo/>
 
     </div>
   );

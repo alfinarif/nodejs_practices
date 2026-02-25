@@ -3,9 +3,9 @@ import { useState } from 'react';
 const Todo = () => {
 
     const [todo, setTodo] = useState('');
-    const [warning, setWarning] = useState('');
+    const [warning, setWarning] = useState(null);
 
-    handleInput = (e)=>{
+    const handleInput = (e)=>{
         const inputValue = e.target.value;
         const warning = inputValue.includes('.js') ? "You need Javascript skill to complete the task. Do you have it?" : null;
 
@@ -19,7 +19,7 @@ const Todo = () => {
                 <textarea
                 name="todo"
                 value={todo}
-                onChange={this.handleInput}
+                onChange={handleInput}
                 />
             </p>
 
