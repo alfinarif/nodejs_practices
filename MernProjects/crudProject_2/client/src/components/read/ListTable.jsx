@@ -2,24 +2,27 @@ import React, {Component, useEffect, useState} from 'react';
 import {DeleteProduct, ReadProduct} from "../../APIServices/CRUDServices.js";
 import FullScreenLoader from "../common/FullScreenLoader.jsx";
 import {errorToast, successToast} from "../../helpers/ValidationHelper.js";
+
+
 const ListTable = ()=>{
     let [dataList, setDataList] = useState([]);
+    const [currentComponent, refreshComponent] = useState(0);
 
     useEffect(()=>{
 
         ReadProduct()
             .then((result)=>{
                 setDataList(result);
-                console.log(result)
             })
-    }, []);
+    }, [currentComponent]);
 
 
     const deleteProduct = (id)=>{
         DeleteProduct(id)
             .then((result)=>{
                 if(result === true){
-                    successToast("Product deleted successfully")
+                    successToast("Product deleted successfully");
+                    refreshComponent(prevFlag => prevFlag + 1);
                 }else {
                     errorToast("Request failed try again!")
                 }
@@ -50,7 +53,7 @@ const ListTable = ()=>{
                     {
                         dataList.map((item, i)=>{
                             return (
-                                <tr>
+                                <tr key={i}>
                                     <td>{item.name}</td>
                                     <td>{item.code}</td>
                                     <td><img className="list-image" src={item.img}/></td>
