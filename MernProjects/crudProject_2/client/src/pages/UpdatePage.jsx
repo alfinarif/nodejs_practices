@@ -1,17 +1,19 @@
-import React, {Component} from 'react';
+
+import {useParams} from "react-router-dom";
 import UpdateForm from "../components/update/UpdateForm.jsx";
 import AppNavBar from "../components/common/AppNavBar.jsx";
 
-class UpdatePage extends Component {
-    render() {
+const UpdatePage = ()=> {
+    const { id } = useParams();
+
         return (
             <div>
                 <AppNavBar/>
                 <br/>
-                <UpdateForm/>
+                <UpdateForm id={id}/>
             </div>
         );
-    }
+
 }
 
 export default UpdatePage;

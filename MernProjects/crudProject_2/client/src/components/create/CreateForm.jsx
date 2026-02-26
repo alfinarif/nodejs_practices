@@ -64,7 +64,13 @@ const CreateForm =()=> {
     };
 
         return (
-            <div className="container">
+            <>
+                <div className="d-flex justify-content-center">
+                    <h1 className="text-primary">Create New Product</h1>
+                </div>
+                <br/>
+
+                <div className="container">
                 <div className="row">
                     <div className="col-md-4 p-2">
                         <label>Product Name</label>
@@ -101,6 +107,7 @@ const CreateForm =()=> {
                     <FullScreenLoader/>
                 </div>
             </div>
+            </>
         );
 
 }
