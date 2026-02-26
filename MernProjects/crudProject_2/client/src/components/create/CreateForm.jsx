@@ -1,11 +1,14 @@
-import React, {useRef} from 'react';
+import {useRef} from 'react';
+import {useNavigate} from "react-router-dom";
 import {isEmpty, successToast, errorToast} from "../../helpers/ValidationHelper.js";
-import {CreateProduct, ReadProduct, UpdateProduct, DeleteProduct} from "../../APIServices/CRUDServices.js";
+import {CreateProduct} from "../../APIServices/CRUDServices.js";
 import FullScreenLoader from "../common/FullScreenLoader.jsx";
 
 const CreateForm =()=> {
 
     let {name, code, img, quantity, unitPrice, totalPrice, loader} = useRef();
+
+    const navigate = useNavigate();
 
     const CreateProductHandler = ()=>{
         const product_name = name.value;
@@ -43,14 +46,10 @@ const CreateForm =()=> {
                 loader.classList.add("d-none");
 
                 if(result === true){
-                        successToast("Product created successfully");
-                        // set value empty
-                        name.value = "";
-                        code.value = "";
-                        img.value = "";
-                        quantity.value = "";
-                        unitPrice.value = "";
-                        totalPrice.value = "";
+                    successToast("Product created successfully");
+                    // redirect user to product list page
+                    navigate('/');
+
                     }else {
                         errorToast("Request failed try again")
                     }
