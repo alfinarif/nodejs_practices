@@ -1,13 +1,19 @@
-import React, {Component} from 'react';
+import React, {useEffect} from 'react';
+import {useParams} from "react-router-dom";
 
-class UpdateForm extends Component {
-    render() {
+const UpdateForm = ()=> {
+
+    const { id } = useParams();
+
+    useEffect(()=>{
+        alert(id);
+    })
+
         return (
             <div>
                 <h1>update form</h1>
             </div>
         );
-    }
 }
 
 export default UpdateForm;

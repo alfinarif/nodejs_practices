@@ -1,4 +1,5 @@
 import React, {Component, useEffect, useState} from 'react';
+import {useNavigate} from "react-router-dom";
 import {DeleteProduct, ReadProduct} from "../../APIServices/CRUDServices.js";
 import FullScreenLoader from "../common/FullScreenLoader.jsx";
 import {errorToast, successToast} from "../../helpers/ValidationHelper.js";
@@ -7,6 +8,8 @@ import {errorToast, successToast} from "../../helpers/ValidationHelper.js";
 const ListTable = ()=>{
     let [dataList, setDataList] = useState([]);
     const [currentComponent, refreshComponent] = useState(0);
+
+    const navigate = useNavigate();
 
     useEffect(()=>{
 
@@ -30,7 +33,8 @@ const ListTable = ()=>{
     };
 
     const updateProduct = (id)=>{
-        alert(id);
+        navigate(`/update/${id}`)
+
     }
 
 
