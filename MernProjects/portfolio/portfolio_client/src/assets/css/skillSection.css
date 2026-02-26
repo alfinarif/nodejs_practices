@@ -1,0 +1,50 @@
+/* Background & Typography */
+#skills {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f8fa;
+}
+
+#skills h2 {
+    font-size: 2.5rem;
+}
+
+#skills p {
+    font-size: 1rem;
+}
+
+/* Skill Cards */
+.skill-card {
+    background-color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Circular Skill */
+.skill-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: conic-gradient(#007bff 0%, #007bff 0%, #e9ecef 0%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-icon {
+    font-size: 2rem;
+    position: absolute;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+    .skill-circle {
+        width: 100px;
+        height: 100px;
+    }
+}

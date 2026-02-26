@@ -13,8 +13,8 @@ export const HeroSection = () => {
                                 and ensure your infrastructure doesn't crumble under pressure.</p>
                             <div className="d-flex gap-3">
                                 <a href="#projects" className="btn btn-primary btn-lg rounded-0 px-4">View
-                                    Architecture</a>
-                                <a href="#contact" className="btn btn-info btn-lg rounded-0 px-4">Deploy a
+                                    Projects</a>
+                                <a href="#contact" className="btn btn-info btn-lg rounded-0 px-4">Leave a
                                     Message</a>
                             </div>
                         </div>
@@ -25,7 +25,7 @@ export const HeroSection = () => {
                                     <span className="dot red"></span>
                                     <span className="dot yellow"></span>
                                     <span className="dot green"></span>
-                                    <small className="ms-2 text-secondary mono">bash — 80x24</small>
+                                    <small className="ms-2 text-secondary mono">alfin — 80x24</small>
                                 </div>
                                 <div className="terminal-body p-4 mono">
                                     <p><span className="text-success">➜</span> <span className="text-info">~</span> cat
