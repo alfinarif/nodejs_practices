@@ -1,0 +1,92 @@
+/* style.css */
+:root {
+    --bg-color: #0b0e14;
+    --terminal-bg: #161b22;
+    --primary-accent: #00d4ff;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+
+    margin: 0;
+}
+
+.mono {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.hero-wrapper {
+    min-height: 100vh;
+    padding: 100px 0;
+}
+
+.text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+}
+
+.text-primary {
+    color: var(--primary-accent) !important;
+}
+
+/* Terminal Styles */
+.terminal-window {
+    background: var(--terminal-bg);
+    border-radius: 8px;
+    border: 1px solid #30363d;
+    overflow: hidden;
+}
+
+.terminal-header {
+    background: #21262d;
+    height: 35px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    background: var(--primary-accent);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.btn-primary {
+    background-color: var(--primary-accent);
+    border: none;
+    color: #000;
+}
+
+.terminal-lang{
+    color: #f8f9fa;
+}
+
+@media screen and (min-width: 600px) {
+    .heroSection {
+        margin-top: 150px!important;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .heroSection {
+        margin-top: 0px!important;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .heroSection {
+        margin-top: 0px!important;
+    }
+}

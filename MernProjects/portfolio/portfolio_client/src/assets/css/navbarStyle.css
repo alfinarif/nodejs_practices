@@ -1,9 +1,6 @@
 
     /* ===== Custom Navbar Styling ===== */
-body {
-    scroll-behavior: smooth;
-    font-family: 'Segoe UI', sans-serif;
-}
+
 
 .navbar {
     backdrop-filter: blur(12px);
