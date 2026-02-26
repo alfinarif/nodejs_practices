@@ -49,7 +49,7 @@ exports.readTodoById = (req, res)=>{
     const id = req.params.id;
 
     const setQuery = {_id: id};
-    const projection = "name, code, img, quantity, unitPrice, totalPrice";
+    const projection = "name code img quantity unitPrice totalPrice";
 
     crudModel.find(setQuery, projection)
         .then((data)=>{

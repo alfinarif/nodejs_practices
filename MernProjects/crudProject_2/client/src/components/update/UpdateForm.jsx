@@ -1,13 +1,20 @@
 import React, {useEffect, useRef} from 'react';
 import FullScreenLoader from "../common/FullScreenLoader.jsx";
 import {errorToast, isEmpty, successToast} from "../../helpers/ValidationHelper.js";
-import {CreateProduct} from "../../APIServices/CRUDServices.js";
+import {CreateProduct, ReadProductById, UpdateProduct} from "../../APIServices/CRUDServices.js";
 
 
 const UpdateForm = (props)=> {
 
     let {name, code, img, quantity, unitPrice, totalPrice, loader} = useRef();
 
+
+    useEffect(()=>{
+        ReadProductById(props.id)
+            .then((result)=>{
+                alert(JSON.stringify(result))
+            })
+    })
     const UpdateProductHandler = ()=>{
         const product_name = name.value;
         const product_code = code.value;
@@ -38,7 +45,7 @@ const UpdateForm = (props)=> {
             // loader showing
             loader.classList.remove("d-none");
             // calling create api
-            CreateProduct(product_name, product_code, product_img, product_quantity, product_unitPrice, product_totalPrice)
+            UpdateProduct(product_name, product_code, product_img, product_quantity, product_unitPrice, product_totalPrice)
                 .then((result)=>{
                     // loader hide
                     loader.classList.add("d-none");
@@ -63,6 +70,8 @@ const UpdateForm = (props)=> {
 
 
     };
+
+
 
 
     return (
