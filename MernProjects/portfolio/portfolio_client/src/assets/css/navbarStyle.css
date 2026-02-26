@@ -1,0 +1,60 @@
+
+    /* ===== Custom Navbar Styling ===== */
+body {
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.75);
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    position: relative;
+    margin: 0 10px;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background: #0d6efd;
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.btn-custom {
+    border-radius: 50px;
+    padding: 6px 18px;
+}
+
+/* Section styling for demo */
+section {
+    height: 100vh;
+    padding-top: 100px;
+}
+
+#home { background: #f8f9fa; }
+#about { background: #e9ecef; }
+#services { background: #dee2e6; }
+#contact { background: #ced4da; }
