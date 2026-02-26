@@ -1,18 +1,26 @@
 import React, {useEffect, useRef} from 'react';
+import {useNavigate} from 'react-router-dom'
 import FullScreenLoader from "../common/FullScreenLoader.jsx";
 import {errorToast, isEmpty, successToast} from "../../helpers/ValidationHelper.js";
 import {CreateProduct, ReadProductById, UpdateProduct} from "../../APIServices/CRUDServices.js";
+
 
 
 const UpdateForm = (props)=> {
 
     let {name, code, img, quantity, unitPrice, totalPrice, loader} = useRef();
 
+    const navigate = useNavigate();
 
     useEffect(()=>{
         ReadProductById(props.id)
             .then((result)=>{
-                alert(JSON.stringify(result))
+                name.value = result[0]['name']
+                code.value = result[0]['code']
+                img.value = result[0]['img']
+                quantity.value = result[0]['quantity']
+                unitPrice.value = result[0]['unitPrice']
+                totalPrice.value = result[0]['totalPrice']
             })
     })
     const UpdateProductHandler = ()=>{
@@ -45,20 +53,24 @@ const UpdateForm = (props)=> {
             // loader showing
             loader.classList.remove("d-none");
             // calling create api
-            UpdateProduct(product_name, product_code, product_img, product_quantity, product_unitPrice, product_totalPrice)
+            UpdateProduct(props.id, product_name, product_code, product_img, product_quantity, product_unitPrice, product_totalPrice)
                 .then((result)=>{
                     // loader hide
                     loader.classList.add("d-none");
 
                     if(result === true){
-                        successToast("Product created successfully");
+                        successToast("Product updated successfully");
                         // set value empty
-                        name.value = "";
-                        code.value = "";
-                        img.value = "";
-                        quantity.value = "";
-                        unitPrice.value = "";
-                        totalPrice.value = "";
+                        name.value = name.value;
+                        code.value = code.value;
+                        img.value = img.value;
+                        quantity.value = quantity.value;
+                        unitPrice.value = unitPrice.value;
+                        totalPrice.value = totalPrice.value;
+
+                        // redirect user to product list page
+                        navigate('/');
+                        
                     }else {
                         errorToast("Request failed try again")
                     }
@@ -111,7 +123,7 @@ const UpdateForm = (props)=> {
                 <br/>
                 <div className="row">
                     <div className="col-md-4 p-2">
-                        <button onClick={UpdateProductHandler} className="btn btn-primary">Create Product</button>
+                        <button onClick={UpdateProductHandler} className="btn btn-primary">Update Product</button>
                     </div>
                 </div>
                 <div className="d-none" ref={(div)=> loader=div}>
