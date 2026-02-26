@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.post('/createTodo', crudController.createTodo);
 router.get('/readTodo', crudController.readTodo);
+router.get('/readTodoById', crudController.readTodoById);
 router.post('/updateTodo/:id', crudController.updateTodo);
 router.get('/deleteTodo/:id', crudController.deleteTodo);
 

@@ -45,6 +45,30 @@ exports.readTodo = (req, res)=>{
 };
 
 
+exports.readTodoById = (req, res)=>{
+    const id = req.params.id;
+
+    const setQuery = {_id: id};
+    const projection = "name, code, img, quantity, unitPrice, totalPrice";
+
+    crudModel.find(setQuery, projection)
+        .then((data)=>{
+            res.status(200).json({
+                status: "success",
+                msg: "Todo read by id successfully",
+                data: data
+            });
+        })
+        .catch((err)=>{
+            res.status(400).json({
+                status: "fail",
+                errmsg: "There is something wrong",
+                error: err
+            });
+        })
+}
+
+
 exports.updateTodo = (req, res)=>{
     const id = req.params.id;
     const name = req.body['name'];
