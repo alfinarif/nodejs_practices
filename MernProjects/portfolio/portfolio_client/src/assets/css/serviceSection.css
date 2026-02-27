@@ -1,0 +1,64 @@
+
+/* Services Section */
+#services {
+    background-color: #fff;
+}
+
+/* Service Cards */
+.service-card {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.service-card i {
+    transition: transform 0.4s ease;
+    color: #fff;
+}
+
+.service-card h5, .service-card p {
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 25px 35px rgba(0,0,0,0.2);
+}
+
+.service-card:hover i {
+    transform: rotate(15deg) scale(1.2);
+}
+
+.service-card:hover h5, .service-card:hover p {
+    transform: translateY(-5px);
+}
+
+/* Responsive tweaks */
+
+@media screen and (min-width: 600px) {
+    #services {
+        margin-top: -260px!important;
+        background-color: #fff;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #services {
+        margin-top: -260px!important;
+        background-color: #fff;
+    }
+    .service-card {
+        padding: 3rem 2rem;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #services {
+        margin-top: -150px!important;
+        background-color: #fff;
+    }
+}
