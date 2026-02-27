@@ -1,0 +1,114 @@
+
+
+#aboutSection {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: auto;
+    color: #fff;
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1f1c2c 0%, #928dab 100%);
+}
+
+.aboutSection-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aboutSection-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+.about-img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.about-img:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+}
+
+.about-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    color: #00ffcc;
+}
+
+.about-title::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: #00ffcc;
+    display: block;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+.btn-custom {
+    background-color: #00ffcc;
+    color: #0f111a;
+    font-weight: bold;
+    border-radius: 50px;
+    padding: 10px 30px;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #0f111a;
+    color: #00ffcc;
+    border: 2px solid #00ffcc;
+}
+
+.aboutSkill {
+    margin-bottom: 15px;
+}
+
+.skill-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.Aboutprogress {
+    height: 10px;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.2);
+}
+
+.Aboutprogress-bar {
+    background-color: #00ffcc;
+    animation: fill 2s ease-in-out forwards;
+}
+
+@keyframes fill {
+    from { width: 0; }
+    to { width: var(--progress-width); }
+}
+
+/* Icons animation */
+.tech-icon {
+    font-size: 1.2rem;
+    color: #00ffcc;
+    transition: transform 0.3s ease;
+}
+
+.tech-icon:hover {
+    transform: scale(1.3) rotate(10deg);
+}

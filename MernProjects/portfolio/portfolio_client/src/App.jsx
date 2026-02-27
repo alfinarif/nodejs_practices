@@ -4,6 +4,7 @@ import {HomePage} from "./pages/HomePage.jsx";
 import {AboutPage} from "./pages/AboutPage.jsx";
 import {ServicePage} from "./pages/ServicePage.jsx";
 import {ContactPage} from "./pages/ContactPage.jsx";
+
 function App() {
 
   return (
