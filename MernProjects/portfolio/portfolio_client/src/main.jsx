@@ -5,6 +5,7 @@ import './assets/css/navbarStyle.css';
 import './assets/css/heroSection.css';
 import './assets/css/skillSection.css';
 import './assets/css/serviceSection.css';
+import './assets/css/footerSection.css';
 
 import './assets/helpers/navbarHelper.js';
 import './assets/helpers/heroSection.js';

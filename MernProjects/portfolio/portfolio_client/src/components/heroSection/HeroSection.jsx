@@ -9,8 +9,7 @@ export const HeroSection = () => {
                             <p className="text-primary mono mb-2">> system.init()</p>
                             <h1 className="display-2 fw-bold mb-3">Alfin Arif <br/><span className="text-primary">Web App Developer</span>
                             </h1>
-                            <p className="lead text-secondary mb-4">I build scalable APIs, optimize database queries,
-                                and ensure your infrastructure doesn't crumble under pressure.</p>
+                            <p className="lead text-secondary mb-4">I am a Backend Developer specializing in building secure, scalable, and high-performance server-side applications. I design and develop APIs, manage databases, implement authentication systems, and ensure seamless integration between frontend and backend services.</p>
                             <div className="d-flex gap-3">
                                 <a href="#projects" className="btn btn-primary btn-lg rounded-0 px-4">View
                                     Projects</a>
