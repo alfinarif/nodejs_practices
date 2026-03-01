@@ -39,8 +39,9 @@ export const ContactSection = () => {
                                     </div>
 
                                     <div className="form-floating mb-4">
-                                        <textarea className="form-control" placeholder="Your Message" id="message"
-                                                  style="height: 120px"></textarea>
+                                        <textarea className="form-control textareaCss" placeholder="Your Message" id="message">
+
+                                        </textarea>
                                         <label htmlFor="message">Your Message</label>
                                     </div>
 

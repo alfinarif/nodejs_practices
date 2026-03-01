@@ -64,6 +64,9 @@
     font-size: 1rem;
 }
 
+.textareaCss{
+    height: 120px;
+}
 @media (max-width: 768px){
     .contact-card{
         padding: 25px;
