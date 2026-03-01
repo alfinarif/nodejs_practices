@@ -1,14 +1,9 @@
 
 import {NavLink} from "react-router-dom";
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 import {useEffect} from "react";
 
 export const NavbarComponent = () => {
-
-    useEffect(()=>{
-        toast.success('This is just a STATIC Portfolio, it is under development!')
-    },[])
-
 
     return (
         <>
