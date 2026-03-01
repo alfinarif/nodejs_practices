@@ -1,3 +1,5 @@
+import {NavLink} from "react-router-dom";
+
 export const HeroSection = () => {
     return (
         <>
@@ -13,8 +15,9 @@ export const HeroSection = () => {
                             <div className="d-flex gap-3">
                                 <a href="#projects" className="btn btn-primary btn-lg rounded-0 px-4">View
                                     Projects</a>
-                                <a href="#contact" className="btn btn-info btn-lg rounded-0 px-4">Leave a
-                                    Message</a>
+                                <NavLink className="btn btn-info btn-lg rounded-0 px-4" to="/contact"> Leave a
+                                    Message </NavLink>
+
                             </div>
                         </div>
 

@@ -68,6 +68,10 @@
     height: 120px;
 }
 @media (max-width: 768px){
+    .contact-section{
+        margin-top: 50px;
+        margin-bottom: -100px;
+    }
     .contact-card{
         padding: 25px;
     }

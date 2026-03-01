@@ -1,4 +1,16 @@
+import {useLocation} from "react-router-dom";
+import {useEffect} from "react";
+
+
+
 export const ContactSection = () => {
+
+    const { pathname } = useLocation();
+    useEffect(()=>{
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
+
     return (
         <>
             <section className="contact-section">
@@ -10,12 +22,12 @@ export const ContactSection = () => {
                             <div className="contact-card">
                                 <h2 className="fw-bold mb-4">Let's Connect</h2>
                                 <div className="contact-info">
-                                    <p><i className="bi bi-geo-alt-fill"></i> 123 Modern Street, NY</p>
-                                    <p><i className="bi bi-envelope-fill"></i> hello@example.com</p>
-                                    <p><i className="bi bi-phone-fill"></i> +1 234 567 890</p>
+                                    <p><i className="bi bi-geo-alt-fill"></i> Al-Hamra Riyadh, Saudi Arabia</p>
+                                    <p><i className="bi bi-envelope-fill"></i> alfin.developer@gmail.com</p>
+                                    <p><i className="bi bi-phone-fill"></i> +966506897109</p>
                                 </div>
                                 <div className="mt-4">
-                                    <a href="#" className="text-white me-3 fs-4"><i className="bi bi-facebook"></i></a>
+                                    <a href="https://facebook.com/aralfinarif1" className="text-white me-3 fs-4"><i className="bi bi-facebook"></i></a>
                                     <a href="#" className="text-white me-3 fs-4"><i className="bi bi-twitter"></i></a>
                                     <a href="#" className="text-white fs-4"><i className="bi bi-instagram"></i></a>
                                 </div>

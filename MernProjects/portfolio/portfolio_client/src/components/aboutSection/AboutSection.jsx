@@ -1,5 +1,14 @@
+import {NavLink, useLocation} from "react-router-dom";
+import { useEffect } from 'react';
+
 
 export const AboutSection = () => {
+    const { pathname } = useLocation();
+    useEffect(()=>{
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
+
     return (
         <div>
             <section id="aboutSection">
@@ -54,7 +63,7 @@ export const AboutSection = () => {
                                     </div>
                                 </div>
 
-                                <a href="#contact" className="btn btn-custom mt-3">Contact Me</a>
+                                <NavLink className="btn btn-custom mt-3 px-4" to="/contact">Contact Me</NavLink>
                             </div>
                         </div>
 
