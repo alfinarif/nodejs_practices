@@ -1,6 +1,9 @@
 
     /* ===== Custom Navbar Styling ===== */
-
+.main-logo{
+    width: 120px;
+    height: auto;
+}
 
 .navbar {
     backdrop-filter: blur(12px);

@@ -1,7 +1,6 @@
 
 import {NavLink} from "react-router-dom";
 import { Toaster } from 'react-hot-toast';
-import {useEffect} from "react";
 
 export const NavbarComponent = () => {
 
